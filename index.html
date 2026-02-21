@@ -60,19 +60,19 @@ body{
     display:flex;
     align-items:center;
     justify-content:center;
-    gap:15px; /* menší mezera */
+    gap:15px;
     margin-bottom:50px;
 }
 
 .slider-wrapper{
-    width:1070px; /* přesně 4 boxy + mezery */
+    width:1070px;
     overflow:hidden;
     padding-top:6px;
 }
 
 .matches-slider{
     display:flex;
-    gap:15px; /* menší mezera mezi boxy */
+    gap:15px;
     transition:transform .4s ease;
 }
 
@@ -189,41 +189,19 @@ body{
 <div class="slider-wrapper">
     <div class="matches-slider" id="slider">
 
-        <div class="match-card">
-            <div class="match-body">
-                <div class="team"><div class="logo"></div><div class="team-name">Loko</div></div>
-                <div class="score">6 : 4</div>
-                <div class="team"><div class="logo"></div><div class="team-name">Tým C</div></div>
-            </div>
-            <a href="#" class="match-button">Statistiky</a>
-        </div>
+        <!-- 6 zápasů -->
 
-        <div class="match-card">
-            <div class="match-body">
-                <div class="team"><div class="logo"></div><div class="team-name">Loko</div></div>
-                <div class="score">3 : 5</div>
-                <div class="team"><div class="logo"></div><div class="team-name">Tým D</div></div>
-            </div>
-            <a href="#" class="match-button">Statistiky</a>
-        </div>
+        <div class="match-card"><div class="match-body"><div class="team"><div class="logo"></div><div class="team-name">Loko</div></div><div class="score">4 : 3</div><div class="team"><div class="logo"></div><div class="team-name">Tým A</div></div></div><a href="#" class="match-button">Statistiky</a></div>
 
-        <div class="match-card">
-            <div class="match-body">
-                <div class="team"><div class="logo"></div><div class="team-name">Loko</div></div>
-                <div class="score">2 : 1</div>
-                <div class="team"><div class="logo"></div><div class="team-name">Tým E</div></div>
-            </div>
-            <a href="#" class="match-button">Statistiky</a>
-        </div>
+        <div class="match-card"><div class="match-body"><div class="team"><div class="logo"></div><div class="team-name">Loko</div></div><div class="score">2 : 6</div><div class="team"><div class="logo"></div><div class="team-name">Tým B</div></div></div><a href="#" class="match-button">Statistiky</a></div>
 
-        <div class="match-card">
-            <div class="match-body">
-                <div class="team"><div class="logo"></div><div class="team-name">Loko</div></div>
-                <div class="score">5 : 2</div>
-                <div class="team"><div class="logo"></div><div class="team-name">Tým F</div></div>
-            </div>
-            <a href="#" class="match-button">Statistiky</a>
-        </div>
+        <div class="match-card"><div class="match-body"><div class="team"><div class="logo"></div><div class="team-name">Loko</div></div><div class="score">6 : 4</div><div class="team"><div class="logo"></div><div class="team-name">Tým C</div></div></div><a href="#" class="match-button">Statistiky</a></div>
+
+        <div class="match-card"><div class="match-body"><div class="team"><div class="logo"></div><div class="team-name">Loko</div></div><div class="score">3 : 5</div><div class="team"><div class="logo"></div><div class="team-name">Tým D</div></div></div><a href="#" class="match-button">Statistiky</a></div>
+
+        <div class="match-card"><div class="match-body"><div class="team"><div class="logo"></div><div class="team-name">Loko</div></div><div class="score">2 : 1</div><div class="team"><div class="logo"></div><div class="team-name">Tým E</div></div></div><a href="#" class="match-button">Statistiky</a></div>
+
+        <div class="match-card"><div class="match-body"><div class="team"><div class="logo"></div><div class="team-name">Loko</div></div><div class="score">5 : 2</div><div class="team"><div class="logo"></div><div class="team-name">Tým F</div></div></div><a href="#" class="match-button">Statistiky</a></div>
 
     </div>
 </div>
@@ -241,7 +219,8 @@ const cardWidth=265; // 250 + 15 gap
 const total=6;
 const visible=4;
 
-let index=0; // 🔥 začínáme bez posunu
+// 🔥 startujeme tak, aby poslední zápas byl úplně vpravo
+let index=total-visible; // = 2
 
 function update(){
     slider.style.transform=`translateX(-${index*cardWidth}px)`;
