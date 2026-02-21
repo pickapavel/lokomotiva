@@ -48,7 +48,7 @@ body{
 }
 
 .slider-wrapper{
-    width:825px;
+    width:1100px; /* 4 boxy */
     overflow:hidden;
     padding-top:10px;
 }
@@ -59,7 +59,7 @@ body{
     transition:transform .4s ease;
 }
 
-/* CARD - MENŠÍ */
+/* CARD */
 
 .match-card{
     width:250px;
@@ -109,23 +109,26 @@ body{
     font-weight:800;
 }
 
-/* TLAČÍTKO */
+/* TLAČÍTKO - TLUMENÉ */
 
 .match-button{
     display:block;
     text-align:center;
     padding:8px 0;
     border-radius:8px;
-    background:#ffd700;
-    color:black;
+    background:#2a2a2a;
+    color:#ccc;
     font-size:12px;
     font-weight:600;
     text-decoration:none;
+    border:1px solid #333;
     transition:.2s;
 }
 
 .match-button:hover{
-    background:white;
+    background:#3a3a3a;
+    color:white;
+    border-color:#555;
 }
 
 /* ARROWS */
@@ -171,17 +174,13 @@ body{
 <div class="slider-wrapper">
     <div class="matches-slider" id="slider">
 
+        <!-- 6 zápasů -->
+
         <div class="match-card">
             <div class="match-body">
-                <div class="team">
-                    <div class="logo"></div>
-                    <div class="team-name">Loko</div>
-                </div>
+                <div class="team"><div class="logo"></div><div class="team-name">Loko</div></div>
                 <div class="score">4 : 3</div>
-                <div class="team">
-                    <div class="logo"></div>
-                    <div class="team-name">Tým A</div>
-                </div>
+                <div class="team"><div class="logo"></div><div class="team-name">Tým A</div></div>
             </div>
             <a href="#" class="match-button">Statistiky</a>
         </div>
@@ -245,7 +244,7 @@ const nextBtn=document.getElementById("nextBtn");
 
 const cardWidth=275;
 const total=6;
-const visible=3;
+const visible=4;
 
 let index=total-visible;
 
