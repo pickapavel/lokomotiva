@@ -37,22 +37,21 @@ body{
     color:#ffd700;
 }
 
-/* 🔥 ODDELOVACÍ ČÁRA */
+/* 🔥 FULL WIDTH DIVIDER */
 
 .divider{
-    width:700px;
+    width:100%;
     height:3px;
-    margin:30px auto 50px auto;
+    margin:30px 0 60px 0;
     background:linear-gradient(
         to right,
-        transparent,
-        rgba(255,215,0,0.3),
-        #ffd700,
-        rgba(255,215,0,0.3),
-        transparent
+        transparent 0%,
+        rgba(255,215,0,0.3) 15%,
+        #ffd700 50%,
+        rgba(255,215,0,0.3) 85%,
+        transparent 100%
     );
-    border-radius:3px;
-    box-shadow:0 0 12px rgba(255,215,0,0.6);
+    box-shadow:0 0 20px rgba(255,215,0,0.6);
 }
 
 /* SLIDER */
@@ -66,7 +65,7 @@ body{
 }
 
 .slider-wrapper{
-    width:1100px;
+    width:1100px; /* přesně 4 boxy */
     overflow:hidden;
     padding-top:10px;
 }
@@ -124,8 +123,6 @@ body{
     font-size:22px;
     font-weight:800;
 }
-
-/* TLAČÍTKO */
 
 .match-button{
     display:block;
@@ -192,6 +189,26 @@ body{
 <div class="slider-wrapper">
     <div class="matches-slider" id="slider">
 
+        <!-- 6 zápasů -->
+
+        <div class="match-card">
+            <div class="match-body">
+                <div class="team"><div class="logo"></div><div class="team-name">Loko</div></div>
+                <div class="score">4 : 3</div>
+                <div class="team"><div class="logo"></div><div class="team-name">Tým A</div></div>
+            </div>
+            <a href="#" class="match-button">Statistiky</a>
+        </div>
+
+        <div class="match-card">
+            <div class="match-body">
+                <div class="team"><div class="logo"></div><div class="team-name">Loko</div></div>
+                <div class="score">2 : 6</div>
+                <div class="team"><div class="logo"></div><div class="team-name">Tým B</div></div>
+            </div>
+            <a href="#" class="match-button">Statistiky</a>
+        </div>
+
         <div class="match-card">
             <div class="match-body">
                 <div class="team"><div class="logo"></div><div class="team-name">Loko</div></div>
@@ -244,7 +261,7 @@ const cardWidth=275;
 const total=6;
 const visible=4;
 
-let index=2;
+let index=total-visible;
 
 function update(){
     slider.style.transform=`translateX(-${index*cardWidth}px)`;
