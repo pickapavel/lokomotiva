@@ -16,52 +16,18 @@ body{
     color:white;
 }
 
-/* HEADER */
+/* SLIDER NAHOŘE */
 
-.hero{
-    text-align:center;
-    padding:35px 20px 12px;
+.top-section{
+    padding-top:30px;
 }
-
-.hero span{
-    display:block;
-    font-size:13px;
-    letter-spacing:3px;
-    color:#aaa;
-    margin-bottom:5px;
-}
-
-.hero h1{
-    font-size:38px;
-    font-weight:800;
-    color:#ffd700;
-}
-
-/* DIVIDER */
-
-.divider{
-    width:100%;
-    height:3px;
-    margin:15px 0 30px 0;
-    background:linear-gradient(
-        to right,
-        transparent 0%,
-        rgba(255,215,0,0.3) 15%,
-        #ffd700 50%,
-        rgba(255,215,0,0.3) 85%,
-        transparent 100%
-    );
-    box-shadow:0 0 18px rgba(255,215,0,0.6);
-}
-
-/* SLIDER */
 
 .slider-container{
     display:flex;
     align-items:center;
     justify-content:center;
     gap:15px;
-    margin-bottom:50px;
+    margin-bottom:30px;
 }
 
 .slider-wrapper{
@@ -89,12 +55,9 @@ body{
     transition:.2s;
 }
 
-/* 🔥 už žádný pohyb nahoru */
 .match-card:hover{
     border-color:#ffd700;
 }
-
-/* CONTENT */
 
 .match-body{
     display:flex;
@@ -126,8 +89,6 @@ body{
     font-weight:800;
 }
 
-/* BUTTON */
-
 .match-button{
     display:block;
     text-align:center;
@@ -142,7 +103,6 @@ body{
     transition:.2s;
 }
 
-/* 🔥 hover efekt tlačítka */
 .match-button:hover{
     border-color:#ffd700;
     color:#ffd700;
@@ -176,43 +136,81 @@ body{
     cursor:default;
 }
 
+/* DIVIDER */
+
+.divider{
+    width:100%;
+    height:3px;
+    margin:25px 0 20px 0;
+    background:linear-gradient(
+        to right,
+        transparent 0%,
+        rgba(255,215,0,0.3) 15%,
+        #ffd700 50%,
+        rgba(255,215,0,0.3) 85%,
+        transparent 100%
+    );
+    box-shadow:0 0 18px rgba(255,215,0,0.6);
+}
+
+/* HEADER DOLE */
+
+.hero{
+    text-align:center;
+    padding:10px 20px 40px;
+}
+
+.hero span{
+    display:block;
+    font-size:13px;
+    letter-spacing:3px;
+    color:#aaa;
+    margin-bottom:5px;
+}
+
+.hero h1{
+    font-size:38px;
+    font-weight:800;
+    color:#ffd700;
+}
+
 </style>
 </head>
 <body>
 
-<div class="hero">
-    <span>TJ LOKOMOTIVA</span>
-    <h1>PACOVŠTÍ BLBOUNI</h1>
+<div class="top-section">
+
+    <div class="slider-container">
+        <div class="arrow" id="prevBtn">‹</div>
+
+        <div class="slider-wrapper">
+            <div class="matches-slider" id="slider">
+
+                <div class="match-card"><div class="match-body"><div class="team"><div class="logo"></div><div class="team-name">Loko</div></div><div class="score">4 : 3</div><div class="team"><div class="logo"></div><div class="team-name">Tým A</div></div></div><a href="#" class="match-button">Statistiky</a></div>
+
+                <div class="match-card"><div class="match-body"><div class="team"><div class="logo"></div><div class="team-name">Loko</div></div><div class="score">2 : 6</div><div class="team"><div class="logo"></div><div class="team-name">Tým B</div></div></div><a href="#" class="match-button">Statistiky</a></div>
+
+                <div class="match-card"><div class="match-body"><div class="team"><div class="logo"></div><div class="team-name">Loko</div></div><div class="score">6 : 4</div><div class="team"><div class="logo"></div><div class="team-name">Tým C</div></div></div><a href="#" class="match-button">Statistiky</a></div>
+
+                <div class="match-card"><div class="match-body"><div class="team"><div class="logo"></div><div class="team-name">Loko</div></div><div class="score">3 : 5</div><div class="team"><div class="logo"></div><div class="team-name">Tým D</div></div></div><a href="#" class="match-button">Statistiky</a></div>
+
+                <div class="match-card"><div class="match-body"><div class="team"><div class="logo"></div><div class="team-name">Loko</div></div><div class="score">2 : 1</div><div class="team"><div class="logo"></div><div class="team-name">Tým E</div></div></div><a href="#" class="match-button">Statistiky</a></div>
+
+                <div class="match-card"><div class="match-body"><div class="team"><div class="logo"></div><div class="team-name">Loko</div></div><div class="score">5 : 2</div><div class="team"><div class="logo"></div><div class="team-name">Tým F</div></div></div><a href="#" class="match-button">Statistiky</a></div>
+
+            </div>
+        </div>
+
+        <div class="arrow" id="nextBtn">›</div>
+    </div>
+
 </div>
 
 <div class="divider"></div>
 
-<div class="slider-container">
-
-<div class="arrow" id="prevBtn">‹</div>
-
-<div class="slider-wrapper">
-    <div class="matches-slider" id="slider">
-
-        <!-- 6 zápasů -->
-
-        <div class="match-card"><div class="match-body"><div class="team"><div class="logo"></div><div class="team-name">Loko</div></div><div class="score">4 : 3</div><div class="team"><div class="logo"></div><div class="team-name">Tým A</div></div></div><a href="#" class="match-button">Statistiky</a></div>
-
-        <div class="match-card"><div class="match-body"><div class="team"><div class="logo"></div><div class="team-name">Loko</div></div><div class="score">2 : 6</div><div class="team"><div class="logo"></div><div class="team-name">Tým B</div></div></div><a href="#" class="match-button">Statistiky</a></div>
-
-        <div class="match-card"><div class="match-body"><div class="team"><div class="logo"></div><div class="team-name">Loko</div></div><div class="score">6 : 4</div><div class="team"><div class="logo"></div><div class="team-name">Tým C</div></div></div><a href="#" class="match-button">Statistiky</a></div>
-
-        <div class="match-card"><div class="match-body"><div class="team"><div class="logo"></div><div class="team-name">Loko</div></div><div class="score">3 : 5</div><div class="team"><div class="logo"></div><div class="team-name">Tým D</div></div></div><a href="#" class="match-button">Statistiky</a></div>
-
-        <div class="match-card"><div class="match-body"><div class="team"><div class="logo"></div><div class="team-name">Loko</div></div><div class="score">2 : 1</div><div class="team"><div class="logo"></div><div class="team-name">Tým E</div></div></div><a href="#" class="match-button">Statistiky</a></div>
-
-        <div class="match-card"><div class="match-body"><div class="team"><div class="logo"></div><div class="team-name">Loko</div></div><div class="score">5 : 2</div><div class="team"><div class="logo"></div><div class="team-name">Tým F</div></div></div><a href="#" class="match-button">Statistiky</a></div>
-
-    </div>
-</div>
-
-<div class="arrow" id="nextBtn">›</div>
-
+<div class="hero">
+    <span>TJ LOKOMOTIVA</span>
+    <h1>PACOVŠTÍ BLBOUNI</h1>
 </div>
 
 <script>
