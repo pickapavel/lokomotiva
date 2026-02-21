@@ -21,7 +21,6 @@ body {
         radial-gradient(circle at 70% 70%, rgba(255,215,0,0.05), transparent 40%),
         linear-gradient(135deg, #0a0a0a 0%, #111111 50%, #0a0a0a 100%);
     color: white;
-    min-height: 100vh;
 }
 
 /* ===== HLAVIČKA ===== */
@@ -47,10 +46,10 @@ body {
 
 /* ===== SLIDER ===== */
 
-.slider-container {
-    position: relative;
-    max-width: 1040px; /* přesně na 4 boxy */
+.slider-wrapper {
+    max-width: 1040px; /* 4 boxy */
     margin: 0 auto 80px auto;
+    position: relative;
     overflow: hidden;
 }
 
@@ -131,28 +130,38 @@ body {
     box-shadow: 0 0 8px rgba(255,215,0,0.7);
 }
 
-/* ===== ŠIPKY ===== */
+/* ===== ŠIPKY - OPRAVENO ===== */
 
 .arrow {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     font-size: 22px;
-    background: rgba(255,215,0,0.2);
-    border: 1px solid rgba(255,215,0,0.5);
+    background: rgba(0,0,0,0.7);
+    border: 1px solid #ffd700;
     color: #ffd700;
-    width: 38px;
-    height: 38px;
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 2;
+    z-index: 10;
 }
 
-.arrow-left { left: -50px; }
-.arrow-right { right: -50px; }
+.arrow-left {
+    left: 10px;
+}
+
+.arrow-right {
+    right: 10px;
+}
+
+.arrow:hover {
+    background: #ffd700;
+    color: black;
+}
 
 </style>
 </head>
@@ -164,14 +173,14 @@ body {
     <div class="club-big">PACOVŠTÍ BLBOUNI</div>
 </section>
 
-<div class="slider-container">
+<div class="slider-wrapper">
 
     <div class="arrow arrow-left" onclick="prevSlide()">‹</div>
     <div class="arrow arrow-right" onclick="nextSlide()">›</div>
 
     <div class="matches-slider" id="slider">
 
-        <!-- 6 ZÁPASŮ -->
+        <!-- 6 zápasů -->
 
         <div class="match-box">
             <div class="match-header">TFBL - 1. kolo (2012)</div>
@@ -260,27 +269,26 @@ body {
 
 <script>
 const slider = document.getElementById("slider");
-let currentIndex = 2; // začneme tak, aby byly vidět poslední 4
+let currentIndex = 2; // začneme na nejnovějších 4
 
 updateSlider();
 
-function nextSlide() {
-    if (currentIndex < 2) {
-        currentIndex++;
+function prevSlide() {
+    if (currentIndex > 0) {
+        currentIndex = 0;
         updateSlider();
     }
 }
 
-function prevSlide() {
-    if (currentIndex > 0) {
-        currentIndex--;
+function nextSlide() {
+    if (currentIndex === 0) {
+        currentIndex = 2;
         updateSlider();
     }
 }
 
 function updateSlider() {
-    const move = currentIndex * 245;
-    slider.style.transform = `translateX(-${move}px)`;
+    slider.style.transform = `translateX(-${currentIndex * 245}px)`;
 }
 </script>
 
