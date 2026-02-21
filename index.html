@@ -37,19 +37,19 @@ body::before {
 
 .hero {
     text-align: center;
-    padding: 60px 20px 40px 20px;
+    padding: 50px 20px 30px 20px;
 }
 
 .club-small {
-    font-size: 20px;
+    font-size: 18px;
     letter-spacing: 4px;
     color: #d4af37;
 }
 
 .club-big {
-    font-size: 60px;
+    font-size: 48px;
     font-weight: 700;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     background: linear-gradient(180deg, #ffd700 0%, #b8860b 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -59,20 +59,19 @@ body::before {
 
 .slider-container {
     position: relative;
-    max-width: 1400px;
+    max-width: 1300px;
     margin: 0 auto 80px auto;
     padding: 0 60px;
 }
 
 .matches-slider {
     display: flex;
-    gap: 20px;
+    align-items: center;
+    gap: 15px;
     overflow-x: auto;
     scroll-behavior: smooth;
-    padding-bottom: 10px;
 }
 
-/* skrytí scrollbar */
 .matches-slider::-webkit-scrollbar {
     display: none;
 }
@@ -81,34 +80,34 @@ body::before {
     scrollbar-width: none;
 }
 
+/* ===== BOX ===== */
+
 .match-box {
-    min-width: 320px;
+    min-width: 230px;
     background: linear-gradient(145deg, #141414, #0d0d0d);
-    border-radius: 10px;
-    border: 1px solid rgba(255,215,0,0.3);
+    border-radius: 8px;
+    border: 1px solid rgba(255,215,0,0.4);
     overflow: hidden;
     transition: 0.3s;
 }
 
 .match-box:hover {
-    transform: translateY(-4px);
-    border-color: rgba(255,215,0,0.7);
-    box-shadow: 0 0 20px rgba(255,215,0,0.25);
+    transform: translateY(-3px);
+    border-color: #ffd700;
+    box-shadow: 0 0 15px rgba(255,215,0,0.25);
 }
 
-/* HLAVIČKA BOXU */
 .match-header {
     background: linear-gradient(90deg, #ffd700, #e6c200);
     color: black;
-    font-size: 13px;
-    padding: 6px 10px;
+    font-size: 12px;
+    padding: 5px;
     font-weight: 600;
     text-align: center;
 }
 
-/* OBSAH - NIŽŠÍ */
 .match-content {
-    padding: 12px 15px 15px 15px;
+    padding: 10px;
 }
 
 .teams {
@@ -119,70 +118,82 @@ body::before {
 
 .team {
     text-align: center;
-    width: 85px;
+    width: 70px;
 }
 
 .logo-placeholder {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     background: linear-gradient(135deg, #ffd700, #b8860b);
-    margin: 0 auto 6px auto;
-    border-radius: 6px;
+    margin: 0 auto 5px auto;
+    border-radius: 4px;
 }
 
 .team-name {
-    font-size: 12px;
+    font-size: 11px;
     color: #ccc;
 }
 
 .score {
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 700;
     color: #ffd700;
 }
 
 .match-link {
-    margin-top: 8px;
-    font-size: 12px;
+    margin-top: 6px;
+    font-size: 11px;
     text-align: center;
     color: #ffd700;
-    cursor: pointer;
 }
 
-.match-link:hover {
-    text-decoration: underline;
+/* ===== FLORBALOVÝ MÍČEK ===== */
+
+.ball {
+    min-width: 18px;
+    height: 18px;
+    background: #ffd700;
+    border-radius: 50%;
+    position: relative;
+    box-shadow: 0 0 8px rgba(255,215,0,0.7);
 }
 
-/* ŠIPKY */
+/* dírky v míčku */
+.ball::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(circle at 30% 30%, #000 15%, transparent 16%),
+        radial-gradient(circle at 70% 30%, #000 15%, transparent 16%),
+        radial-gradient(circle at 30% 70%, #000 15%, transparent 16%),
+        radial-gradient(circle at 70% 70%, #000 15%, transparent 16%);
+    background-size: 8px 8px;
+}
+
+/* ===== ŠIPKY ===== */
+
 .arrow {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 28px;
-    background: rgba(255,215,0,0.15);
-    border: 1px solid rgba(255,215,0,0.4);
+    font-size: 24px;
+    background: rgba(255,215,0,0.2);
+    border: 1px solid rgba(255,215,0,0.5);
     color: #ffd700;
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: 0.3s;
 }
 
-.arrow:hover {
-    background: rgba(255,215,0,0.35);
-}
+.arrow-left { left: 10px; }
+.arrow-right { right: 10px; }
 
-.arrow-left {
-    left: 10px;
-}
-
-.arrow-right {
-    right: 10px;
-}
 </style>
 </head>
 
@@ -200,7 +211,6 @@ body::before {
 
     <div class="matches-slider" id="slider">
 
-        <!-- STARŠÍ -->
         <div class="match-box">
             <div class="match-header">TFBL - 1. kolo (2013)</div>
             <div class="match-content">
@@ -218,6 +228,8 @@ body::before {
                 <div class="match-link">STATISTIKA</div>
             </div>
         </div>
+
+        <div class="ball"></div>
 
         <div class="match-box">
             <div class="match-header">TFBL - 2. kolo (2013)</div>
@@ -237,6 +249,8 @@ body::before {
             </div>
         </div>
 
+        <div class="ball"></div>
+
         <div class="match-box">
             <div class="match-header">TFBL - 3. kolo (2014)</div>
             <div class="match-content">
@@ -255,7 +269,8 @@ body::before {
             </div>
         </div>
 
-        <!-- NEJNOVĚJŠÍ VPRAVO -->
+        <div class="ball"></div>
+
         <div class="match-box">
             <div class="match-header">TFBL - 4. kolo (2014)</div>
             <div class="match-content">
@@ -281,17 +296,11 @@ body::before {
 const slider = document.getElementById("slider");
 
 function scrollLeft() {
-    slider.scrollBy({
-        left: -340,
-        behavior: "smooth"
-    });
+    slider.scrollBy({ left: -260, behavior: "smooth" });
 }
 
 function scrollRight() {
-    slider.scrollBy({
-        left: 340,
-        behavior: "smooth"
-    });
+    slider.scrollBy({ left: 260, behavior: "smooth" });
 }
 </script>
 
