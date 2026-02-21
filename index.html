@@ -89,10 +89,12 @@ body{
     transition:.2s;
 }
 
+/* 🔥 už žádný pohyb nahoru */
 .match-card:hover{
-    transform:translateY(-5px);
     border-color:#ffd700;
 }
+
+/* CONTENT */
 
 .match-body{
     display:flex;
@@ -124,6 +126,8 @@ body{
     font-weight:800;
 }
 
+/* BUTTON */
+
 .match-button{
     display:block;
     text-align:center;
@@ -138,10 +142,11 @@ body{
     transition:.2s;
 }
 
+/* 🔥 hover efekt tlačítka */
 .match-button:hover{
-    background:#3a3a3a;
-    color:white;
-    border-color:#555;
+    border-color:#ffd700;
+    color:#ffd700;
+    background:#242424;
 }
 
 /* ARROWS */
@@ -215,12 +220,11 @@ const slider=document.getElementById("slider");
 const prevBtn=document.getElementById("prevBtn");
 const nextBtn=document.getElementById("nextBtn");
 
-const cardWidth=265; // 250 + 15 gap
+const cardWidth=265;
 const total=6;
 const visible=4;
 
-// 🔥 startujeme tak, aby poslední zápas byl úplně vpravo
-let index=total-visible; // = 2
+let index=total-visible;
 
 function update(){
     slider.style.transform=`translateX(-${index*cardWidth}px)`;
