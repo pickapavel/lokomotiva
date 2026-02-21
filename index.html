@@ -16,7 +16,7 @@ body{
     color:white;
 }
 
-/* ===== HEADER ===== */
+/* HEADER */
 
 .hero{
     text-align:center;
@@ -37,13 +37,13 @@ body{
     color:#ffd700;
 }
 
-/* ===== SLIDER ===== */
+/* SLIDER WRAPPER */
 
 .slider-wrapper{
-    width:1100px;
+    width:1100px; /* přesně 4 karty */
     margin:0 auto 100px;
     position:relative;
-    overflow:visible; /* 🔥 už neořezává */
+    overflow:hidden; /* 🔥 důležité */
 }
 
 .matches-slider{
@@ -52,14 +52,14 @@ body{
     transition:transform .4s ease;
 }
 
-/* ===== CARD ===== */
+/* CARD */
 
 .match-card{
     width:250px;
+    flex-shrink:0;
     background:#1a1a1a;
     border-radius:14px;
     padding:16px;
-    flex-shrink:0;
     border:1px solid rgba(255,215,0,0.2);
     box-shadow:0 8px 25px rgba(0,0,0,0.6);
     transition:.2s;
@@ -68,7 +68,6 @@ body{
 .match-card:hover{
     transform:translateY(-6px);
     border-color:#ffd700;
-    box-shadow:0 12px 30px rgba(255,215,0,0.25);
 }
 
 .match-top{
@@ -112,10 +111,9 @@ body{
     margin-top:12px;
     font-size:12px;
     color:#ffd700;
-    cursor:pointer;
 }
 
-/* ===== ARROWS ===== */
+/* ARROWS */
 
 .arrow{
     position:absolute;
@@ -146,8 +144,8 @@ body{
     cursor:default;
 }
 
-.arrow-left{ left:0; }
-.arrow-right{ right:0; }
+.arrow-left{ left:10px; }
+.arrow-right{ right:10px; }
 
 </style>
 </head>
@@ -164,6 +162,8 @@ body{
 <div class="arrow arrow-right" id="nextBtn">›</div>
 
 <div class="matches-slider" id="slider">
+
+<!-- 6 zápasů -->
 
 <div class="match-card">
 <div class="match-top">TFBL - 1. kolo (2012)</div>
@@ -233,16 +233,16 @@ const slider=document.getElementById("slider");
 const prevBtn=document.getElementById("prevBtn");
 const nextBtn=document.getElementById("nextBtn");
 
-const cardWidth=275;
-const total=6;
-const visible=4;
+const cardWidth=275; // 250 + 25 gap
+const totalCards=6;
+const visibleCards=4;
 
-let index=total-visible;
+let index=totalCards-visibleCards;
 
 function update(){
     slider.style.transform=`translateX(-${index*cardWidth}px)`;
     prevBtn.classList.toggle("disabled",index===0);
-    nextBtn.classList.toggle("disabled",index===total-visible);
+    nextBtn.classList.toggle("disabled",index===totalCards-visibleCards);
 }
 
 prevBtn.onclick=()=>{
@@ -250,7 +250,7 @@ prevBtn.onclick=()=>{
 };
 
 nextBtn.onclick=()=>{
-    if(index<total-visible){index++;update();}
+    if(index<totalCards-visibleCards){index++;update();}
 };
 
 update();
