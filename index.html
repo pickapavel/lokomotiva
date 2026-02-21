@@ -17,7 +17,7 @@
 body {
     font-family: 'Oswald', sans-serif;
     background:
-        radial-gradient(circle at 30% 30%, rgba(255,215,0,0.07), transparent 40%),
+        radial-gradient(circle at 30% 30%, rgba(255,215,0,0.06), transparent 40%),
         radial-gradient(circle at 70% 70%, rgba(255,215,0,0.05), transparent 40%),
         linear-gradient(135deg, #0a0a0a 0%, #111111 50%, #0a0a0a 100%);
     color: white;
@@ -31,90 +31,13 @@ body::before {
     inset: 0;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
     pointer-events: none;
-    z-index: 0;
 }
 
-/* ====== MATCH BOX SECTION ====== */
-
-.matches {
-    display: flex;
-    gap: 25px;
-    padding: 40px 60px;
-    overflow-x: auto;
-    position: relative;
-    z-index: 1;
-}
-
-.match-box {
-    min-width: 280px;
-    background: linear-gradient(145deg, #141414, #0d0d0d);
-    border: 1px solid rgba(255,215,0,0.25);
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 0 15px rgba(255,215,0,0.15);
-    transition: 0.3s;
-}
-
-.match-box:hover {
-    transform: translateY(-6px);
-    border-color: rgba(255,215,0,0.6);
-    box-shadow: 0 0 25px rgba(255,215,0,0.3);
-}
-
-.match-title {
-    font-size: 14px;
-    color: #ffd700;
-    margin-bottom: 15px;
-}
-
-.teams {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.team {
-    text-align: center;
-    width: 80px;
-}
-
-.logo-placeholder {
-    width: 50px;
-    height: 50px;
-    background: linear-gradient(135deg, #ffd700, #b8860b);
-    margin: 0 auto 8px auto;
-    border-radius: 6px;
-}
-
-.team-name {
-    font-size: 14px;
-    color: #ccc;
-}
-
-.score {
-    font-size: 28px;
-    font-weight: 700;
-    color: #ffd700;
-}
-
-.match-link {
-    margin-top: 15px;
-    font-size: 13px;
-    text-align: center;
-    color: #ffd700;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.match-link:hover {
-    text-decoration: underline;
-}
-
-/* ===== HERO (pod tím) ===== */
+/* ======= HLAVIČKA KLUBU ======= */
 
 .hero {
     text-align: center;
-    padding: 80px 20px;
+    padding: 60px 20px 40px 20px;
 }
 
 .club-small {
@@ -126,61 +49,198 @@ body::before {
 .club-big {
     font-size: 60px;
     font-weight: 700;
+    letter-spacing: 3px;
     background: linear-gradient(180deg, #ffd700 0%, #b8860b 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
+/* ======= MATCH BOXES ======= */
+
+.matches-wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px 40px 80px 40px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.match-box {
+    background: linear-gradient(145deg, #141414, #0d0d0d);
+    border-radius: 10px;
+    border: 1px solid rgba(255,215,0,0.3);
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.match-box:hover {
+    transform: translateY(-6px);
+    border-color: rgba(255,215,0,0.7);
+    box-shadow: 0 0 25px rgba(255,215,0,0.25);
+}
+
+/* horní žlutá hlavička */
+.match-header {
+    background: linear-gradient(90deg, #ffd700, #e6c200);
+    color: black;
+    font-size: 14px;
+    padding: 8px 12px;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* obsah boxu */
+.match-content {
+    padding: 20px;
+}
+
+.teams {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.team {
+    text-align: center;
+    width: 90px;
+}
+
+.logo-placeholder {
+    width: 55px;
+    height: 55px;
+    background: linear-gradient(135deg, #ffd700, #b8860b);
+    margin: 0 auto 10px auto;
+    border-radius: 6px;
+}
+
+.team-name {
+    font-size: 14px;
+    color: #ccc;
+}
+
+.score {
+    font-size: 30px;
+    font-weight: 700;
+    color: #ffd700;
+}
+
+.match-link {
+    margin-top: 15px;
+    font-size: 13px;
+    text-align: center;
+    color: #ffd700;
+    cursor: pointer;
+}
+
+.match-link:hover {
+    text-decoration: underline;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1200px) {
+    .matches-wrapper {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+    .matches-wrapper {
+        grid-template-columns: 1fr;
+    }
+}
 </style>
 </head>
 
 <body>
 
-<!-- MATCH BOXES -->
-<section class="matches">
-
-    <div class="match-box">
-        <div class="match-title">TFBL - 1. kolo</div>
-        <div class="teams">
-            <div class="team">
-                <div class="logo-placeholder"></div>
-                <div class="team-name">Lokomotiva</div>
-            </div>
-
-            <div class="score">6 - 4</div>
-
-            <div class="team">
-                <div class="logo-placeholder"></div>
-                <div class="team-name">FbK Pivní Vlny</div>
-            </div>
-        </div>
-        <div class="match-link">STATISTIKA ZÁPASU</div>
-    </div>
-
-    <div class="match-box">
-        <div class="match-title">TFBL - 2. kolo</div>
-        <div class="teams">
-            <div class="team">
-                <div class="logo-placeholder"></div>
-                <div class="team-name">Lokomotiva</div>
-            </div>
-
-            <div class="score">3 - 5</div>
-
-            <div class="team">
-                <div class="logo-placeholder"></div>
-                <div class="team-name">Chýnov</div>
-            </div>
-        </div>
-        <div class="match-link">STATISTIKA ZÁPASU</div>
-    </div>
-
-</section>
-
-<!-- HERO -->
 <section class="hero">
     <div class="club-small">TJ LOKOMOTIVA</div>
     <div class="club-big">PACOVŠTÍ BLBOUNI</div>
+</section>
+
+<section class="matches-wrapper">
+
+    <div class="match-box">
+        <div class="match-header">TFBL - 1. kolo - Skupina A (22.1.2013)</div>
+        <div class="match-content">
+            <div class="teams">
+                <div class="team">
+                    <div class="logo-placeholder"></div>
+                    <div class="team-name">Lokomotiva</div>
+                </div>
+
+                <div class="score">6 - 4</div>
+
+                <div class="team">
+                    <div class="logo-placeholder"></div>
+                    <div class="team-name">FbK Pivní Vlny</div>
+                </div>
+            </div>
+            <div class="match-link">STATISTIKA ZÁPASU</div>
+        </div>
+    </div>
+
+    <div class="match-box">
+        <div class="match-header">TFBL - 2. kolo - Skupina A (22.1.2013)</div>
+        <div class="match-content">
+            <div class="teams">
+                <div class="team">
+                    <div class="logo-placeholder"></div>
+                    <div class="team-name">Lokomotiva</div>
+                </div>
+
+                <div class="score">3 - 5</div>
+
+                <div class="team">
+                    <div class="logo-placeholder"></div>
+                    <div class="team-name">Chýnov</div>
+                </div>
+            </div>
+            <div class="match-link">STATISTIKA ZÁPASU</div>
+        </div>
+    </div>
+
+    <div class="match-box">
+        <div class="match-header">TFBL - 3. kolo - Divize (11.08.2014)</div>
+        <div class="match-content">
+            <div class="teams">
+                <div class="team">
+                    <div class="logo-placeholder"></div>
+                    <div class="team-name">Lokomotiva</div>
+                </div>
+
+                <div class="score">2 - 1</div>
+
+                <div class="team">
+                    <div class="logo-placeholder"></div>
+                    <div class="team-name">Vajgar</div>
+                </div>
+            </div>
+            <div class="match-link">STATISTIKA ZÁPASU</div>
+        </div>
+    </div>
+
+    <div class="match-box">
+        <div class="match-header">TFBL - 4. kolo - Divize (11.08.2014)</div>
+        <div class="match-content">
+            <div class="teams">
+                <div class="team">
+                    <div class="logo-placeholder"></div>
+                    <div class="team-name">Lokomotiva</div>
+                </div>
+
+                <div class="score">2 - 1</div>
+
+                <div class="team">
+                    <div class="logo-placeholder"></div>
+                    <div class="team-name">RR Tábor</div>
+                </div>
+            </div>
+            <div class="match-link">STATISTIKA ZÁPASU</div>
+        </div>
+    </div>
+
 </section>
 
 </body>
