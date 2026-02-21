@@ -16,11 +16,11 @@ body{
     color:white;
 }
 
-/* HEADER - MÉNĚ MÍSTA */
+/* HEADER */
 
 .hero{
     text-align:center;
-    padding:40px 20px 15px; /* bylo víc */
+    padding:35px 20px 12px;
 }
 
 .hero span{
@@ -28,21 +28,21 @@ body{
     font-size:13px;
     letter-spacing:3px;
     color:#aaa;
-    margin-bottom:6px;
+    margin-bottom:5px;
 }
 
 .hero h1{
-    font-size:40px;
+    font-size:38px;
     font-weight:800;
     color:#ffd700;
 }
 
-/* DIVIDER - BLÍŽ K NADPISU */
+/* DIVIDER */
 
 .divider{
     width:100%;
     height:3px;
-    margin:20px 0 35px 0; /* menší mezery */
+    margin:15px 0 30px 0;
     background:linear-gradient(
         to right,
         transparent 0%,
@@ -51,7 +51,7 @@ body{
         rgba(255,215,0,0.3) 85%,
         transparent 100%
     );
-    box-shadow:0 0 20px rgba(255,215,0,0.6);
+    box-shadow:0 0 18px rgba(255,215,0,0.6);
 }
 
 /* SLIDER */
@@ -60,19 +60,19 @@ body{
     display:flex;
     align-items:center;
     justify-content:center;
-    gap:20px; /* lehce menší */
-    margin-bottom:60px; /* bylo 100px */
+    gap:15px; /* menší mezera */
+    margin-bottom:50px;
 }
 
 .slider-wrapper{
-    width:1100px;
+    width:1070px; /* přesně 4 boxy + mezery */
     overflow:hidden;
-    padding-top:8px;
+    padding-top:6px;
 }
 
 .matches-slider{
     display:flex;
-    gap:20px; /* menší mezera mezi boxy */
+    gap:15px; /* menší mezera mezi boxy */
     transition:transform .4s ease;
 }
 
@@ -83,14 +83,14 @@ body{
     flex-shrink:0;
     background:#1a1a1a;
     border-radius:14px;
-    padding:14px 16px 16px 16px;
+    padding:14px 16px 15px 16px;
     border:1px solid rgba(255,215,0,0.25);
-    box-shadow:0 6px 20px rgba(0,0,0,0.6);
+    box-shadow:0 6px 18px rgba(0,0,0,0.6);
     transition:.2s;
 }
 
 .match-card:hover{
-    transform:translateY(-6px);
+    transform:translateY(-5px);
     border-color:#ffd700;
 }
 
@@ -98,20 +98,20 @@ body{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    margin-bottom:12px;
+    margin-bottom:10px;
 }
 
 .team{
     text-align:center;
-    width:65px;
+    width:60px;
 }
 
 .logo{
-    width:32px;
-    height:32px;
+    width:30px;
+    height:30px;
     background:#ffd700;
     border-radius:8px;
-    margin:0 auto 6px;
+    margin:0 auto 5px;
 }
 
 .team-name{
@@ -120,14 +120,14 @@ body{
 }
 
 .score{
-    font-size:22px;
+    font-size:21px;
     font-weight:800;
 }
 
 .match-button{
     display:block;
     text-align:center;
-    padding:7px 0;
+    padding:6px 0;
     border-radius:8px;
     background:#2a2a2a;
     color:#ccc;
@@ -147,8 +147,8 @@ body{
 /* ARROWS */
 
 .arrow{
-    width:50px;
-    height:50px;
+    width:48px;
+    height:48px;
     border-radius:50%;
     background:#1f1f1f;
     display:flex;
@@ -157,7 +157,7 @@ body{
     font-size:20px;
     cursor:pointer;
     border:1px solid rgba(255,215,0,0.4);
-    box-shadow:0 0 20px rgba(255,215,0,0.2);
+    box-shadow:0 0 18px rgba(255,215,0,0.2);
     transition:.3s;
 }
 
@@ -237,11 +237,11 @@ const slider=document.getElementById("slider");
 const prevBtn=document.getElementById("prevBtn");
 const nextBtn=document.getElementById("nextBtn");
 
-const cardWidth=270; 
+const cardWidth=265; // 250 + 15 gap
 const total=6;
 const visible=4;
 
-let index=2;
+let index=0; // 🔥 začínáme bez posunu
 
 function update(){
     slider.style.transform=`translateX(-${index*cardWidth}px)`;
