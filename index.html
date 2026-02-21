@@ -17,15 +17,17 @@
 body {
     font-family: 'Oswald', sans-serif;
     background:
-        radial-gradient(circle at 20% 20%, rgba(255,215,0,0.06), transparent 40%),
-        radial-gradient(circle at 80% 80%, rgba(255,215,0,0.05), transparent 40%),
+        radial-gradient(circle at 30% 30%, rgba(255,215,0,0.07), transparent 40%),
+        radial-gradient(circle at 70% 70%, rgba(255,215,0,0.05), transparent 40%),
         linear-gradient(135deg, #0a0a0a 0%, #111111 50%, #0a0a0a 100%);
     color: white;
     min-height: 100vh;
-    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-/* jemná textura */
+/* textura */
 body::before {
     content: "";
     position: fixed;
@@ -35,25 +37,27 @@ body::before {
     z-index: 0;
 }
 
-.header {
+/* HERO CENTER */
+.hero {
     position: relative;
     z-index: 1;
-    padding: 40px 60px;
+    text-align: center;
+    padding-top: 120px;
 }
 
-/* MALÝ HORNÍ TEXT */
+/* malý horní text */
 .club-small {
     font-size: 22px;
-    letter-spacing: 3px;
+    letter-spacing: 4px;
     color: #d4af37;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
-/* VELKÝ HLAVNÍ NÁZEV */
+/* hlavní název */
 .club-big {
-    font-size: 64px;
+    font-size: 72px;
     font-weight: 700;
-    letter-spacing: 4px;
+    letter-spacing: 5px;
     text-transform: uppercase;
 
     background: linear-gradient(180deg, #ffd700 0%, #b8860b 100%);
@@ -61,21 +65,23 @@ body::before {
     -webkit-text-fill-color: transparent;
 
     text-shadow:
-        2px 2px 0px #000,
-        4px 4px 15px rgba(255,215,0,0.3);
+        3px 3px 0px #000,
+        6px 6px 25px rgba(255,215,0,0.35);
 }
 
-/* jemná zlatá linka pod názvem */
+/* zlatá linka */
 .gold-line {
-    margin-top: 15px;
-    width: 300px;
+    margin: 20px auto 0 auto;
+    width: 400px;
     height: 3px;
-    background: linear-gradient(to right, #ffd700, transparent);
+    background: linear-gradient(to right, transparent, #ffd700, transparent);
 }
 
-/* zbytek stránky jen ukázkový obsah */
+/* další obsah */
 .content {
-    padding: 100px 60px;
+    margin-top: 120px;
+    max-width: 900px;
+    text-align: center;
     font-size: 20px;
     color: #cccccc;
 }
@@ -84,11 +90,11 @@ body::before {
 
 <body>
 
-<div class="header">
+<section class="hero">
     <div class="club-small">TJ LOKOMOTIVA</div>
     <div class="club-big">PACOVŠTÍ BLBOUNI</div>
     <div class="gold-line"></div>
-</div>
+</section>
 
 <div class="content">
     Tady bude pokračovat obsah webu...
