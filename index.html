@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Black Gold Web</title>
+<title>Lokomotiva</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
 * {
@@ -15,12 +15,12 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
-    color: #ffffff;
-    background: 
-        radial-gradient(circle at 20% 30%, rgba(255,215,0,0.08), transparent 40%),
-        radial-gradient(circle at 80% 70%, rgba(255,215,0,0.05), transparent 40%),
-        linear-gradient(135deg, #0f0f0f 0%, #111111 40%, #0a0a0a 100%);
+    font-family: 'Oswald', sans-serif;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255,215,0,0.06), transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(255,215,0,0.05), transparent 40%),
+        linear-gradient(135deg, #0a0a0a 0%, #111111 50%, #0a0a0a 100%);
+    color: white;
     min-height: 100vh;
     overflow-x: hidden;
 }
@@ -30,172 +30,68 @@ body::before {
     content: "";
     position: fixed;
     inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
     pointer-events: none;
     z-index: 0;
 }
 
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
+.header {
     position: relative;
     z-index: 1;
+    padding: 40px 60px;
 }
 
-/* NAVIGATION */
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 25px 0;
-}
-
-.logo {
+/* MALÝ HORNÍ TEXT */
+.club-small {
     font-size: 22px;
+    letter-spacing: 3px;
+    color: #d4af37;
+    margin-bottom: 5px;
+}
+
+/* VELKÝ HLAVNÍ NÁZEV */
+.club-big {
+    font-size: 64px;
     font-weight: 700;
-    letter-spacing: 2px;
-    background: linear-gradient(90deg, #d4af37, #ffd700);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+
+    background: linear-gradient(180deg, #ffd700 0%, #b8860b 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+
+    text-shadow:
+        2px 2px 0px #000,
+        4px 4px 15px rgba(255,215,0,0.3);
 }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 30px;
+/* jemná zlatá linka pod názvem */
+.gold-line {
+    margin-top: 15px;
+    width: 300px;
+    height: 3px;
+    background: linear-gradient(to right, #ffd700, transparent);
 }
 
-nav ul li a {
-    text-decoration: none;
+/* zbytek stránky jen ukázkový obsah */
+.content {
+    padding: 100px 60px;
+    font-size: 20px;
     color: #cccccc;
-    transition: 0.3s;
-    font-weight: 400;
-}
-
-nav ul li a:hover {
-    color: #ffd700;
-}
-
-/* HERO */
-.hero {
-    text-align: center;
-    padding: 120px 20px;
-}
-
-.hero h1 {
-    font-size: 48px;
-    font-weight: 700;
-    margin-bottom: 20px;
-    background: linear-gradient(90deg, #ffffff, #d4af37);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.hero p {
-    font-size: 18px;
-    color: #bbbbbb;
-    margin-bottom: 40px;
-}
-
-.btn {
-    padding: 14px 32px;
-    border: none;
-    background: linear-gradient(90deg, #b8860b, #ffd700);
-    color: #000;
-    font-weight: 600;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: 0.3s;
-    box-shadow: 0 0 20px rgba(255,215,0,0.3);
-}
-
-.btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 0 30px rgba(255,215,0,0.6);
-}
-
-/* SECTION */
-.section {
-    padding: 80px 20px;
-    text-align: center;
-}
-
-.card-wrapper {
-    display: flex;
-    gap: 30px;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 40px;
-}
-
-.card {
-    background: linear-gradient(145deg, #141414, #0d0d0d);
-    padding: 30px;
-    width: 280px;
-    border-radius: 15px;
-    border: 1px solid rgba(255,215,0,0.1);
-    transition: 0.3s;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    border-color: rgba(255,215,0,0.4);
-    box-shadow: 0 0 25px rgba(255,215,0,0.15);
-}
-
-footer {
-    text-align: center;
-    padding: 40px 0;
-    color: #666;
-    font-size: 14px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
-    <nav>
-        <div class="logo">BLACKGOLD</div>
-        <ul>
-            <li><a href="#">Domů</a></li>
-            <li><a href="#">Služby</a></li>
-            <li><a href="#">O nás</a></li>
-            <li><a href="#">Kontakt</a></li>
-        </ul>
-    </nav>
+<div class="header">
+    <div class="club-small">TJ LOKOMOTIVA</div>
+    <div class="club-big">PACOVŠTÍ BLBOUNI</div>
+    <div class="gold-line"></div>
+</div>
 
-    <section class="hero">
-        <h1>Moderní černo-zlatý web</h1>
-        <p>Elegantní design s tmavým gradientem a luxusním nádechem.</p>
-        <button class="btn">Zjistit více</button>
-    </section>
-
-    <section class="section">
-        <h2 style="color:#ffd700;">Naše služby</h2>
-
-        <div class="card-wrapper">
-            <div class="card">
-                <h3>Design</h3>
-                <p>Moderní a luxusní vzhled pro vaši značku.</p>
-            </div>
-
-            <div class="card">
-                <h3>Vývoj</h3>
-                <p>Rychlý, čistý a optimalizovaný kód.</p>
-            </div>
-
-            <div class="card">
-                <h3>Marketing</h3>
-                <p>Strategie zaměřená na růst a výsledky.</p>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        © 2026 BlackGold. Všechna práva vyhrazena.
-    </footer>
+<div class="content">
+    Tady bude pokračovat obsah webu...
 </div>
 
 </body>
