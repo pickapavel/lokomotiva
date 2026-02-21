@@ -48,9 +48,9 @@ body{
 }
 
 .slider-wrapper{
-    width:825px; /* 3 karty */
+    width:825px;
     overflow:hidden;
-    padding-top:10px; /* 🔥 prostor pro hover posun */
+    padding-top:10px;
 }
 
 .matches-slider{
@@ -59,16 +59,16 @@ body{
     transition:transform .4s ease;
 }
 
-/* CARD */
+/* CARD - MENŠÍ */
 
 .match-card{
     width:250px;
     flex-shrink:0;
     background:#1a1a1a;
     border-radius:14px;
-    padding:16px;
-    border:1px solid rgba(255,215,0,0.2);
-    box-shadow:0 8px 25px rgba(0,0,0,0.6);
+    padding:14px 16px 16px 16px;
+    border:1px solid rgba(255,215,0,0.25);
+    box-shadow:0 6px 20px rgba(0,0,0,0.6);
     transition:.2s;
 }
 
@@ -77,27 +77,23 @@ body{
     border-color:#ffd700;
 }
 
-.match-top{
-    font-size:12px;
-    font-weight:600;
-    color:#ffd700;
-    margin-bottom:12px;
-}
+/* OBSAH */
 
 .match-body{
     display:flex;
     justify-content:space-between;
     align-items:center;
+    margin-bottom:14px;
 }
 
 .team{
     text-align:center;
-    width:70px;
+    width:65px;
 }
 
 .logo{
-    width:34px;
-    height:34px;
+    width:32px;
+    height:32px;
     background:#ffd700;
     border-radius:8px;
     margin:0 auto 6px;
@@ -113,11 +109,23 @@ body{
     font-weight:800;
 }
 
-.match-footer{
+/* TLAČÍTKO */
+
+.match-button{
+    display:block;
     text-align:center;
-    margin-top:12px;
+    padding:8px 0;
+    border-radius:8px;
+    background:#ffd700;
+    color:black;
     font-size:12px;
-    color:#ffd700;
+    font-weight:600;
+    text-decoration:none;
+    transition:.2s;
+}
+
+.match-button:hover{
+    background:white;
 }
 
 /* ARROWS */
@@ -163,66 +171,64 @@ body{
 <div class="slider-wrapper">
     <div class="matches-slider" id="slider">
 
-        <!-- 6 zápasů -->
-
         <div class="match-card">
-            <div class="match-top">TFBL - 1. kolo (2012)</div>
             <div class="match-body">
-                <div class="team"><div class="logo"></div><div class="team-name">Loko</div></div>
+                <div class="team">
+                    <div class="logo"></div>
+                    <div class="team-name">Loko</div>
+                </div>
                 <div class="score">4 : 3</div>
-                <div class="team"><div class="logo"></div><div class="team-name">Tým A</div></div>
+                <div class="team">
+                    <div class="logo"></div>
+                    <div class="team-name">Tým A</div>
+                </div>
             </div>
-            <div class="match-footer">Statistiky</div>
+            <a href="#" class="match-button">Statistiky</a>
         </div>
 
         <div class="match-card">
-            <div class="match-top">TFBL - 2. kolo (2012)</div>
             <div class="match-body">
                 <div class="team"><div class="logo"></div><div class="team-name">Loko</div></div>
                 <div class="score">2 : 6</div>
                 <div class="team"><div class="logo"></div><div class="team-name">Tým B</div></div>
             </div>
-            <div class="match-footer">Statistiky</div>
+            <a href="#" class="match-button">Statistiky</a>
         </div>
 
         <div class="match-card">
-            <div class="match-top">TFBL - 3. kolo (2013)</div>
             <div class="match-body">
                 <div class="team"><div class="logo"></div><div class="team-name">Loko</div></div>
                 <div class="score">6 : 4</div>
                 <div class="team"><div class="logo"></div><div class="team-name">Tým C</div></div>
             </div>
-            <div class="match-footer">Statistiky</div>
+            <a href="#" class="match-button">Statistiky</a>
         </div>
 
         <div class="match-card">
-            <div class="match-top">TFBL - 4. kolo (2013)</div>
             <div class="match-body">
                 <div class="team"><div class="logo"></div><div class="team-name">Loko</div></div>
                 <div class="score">3 : 5</div>
                 <div class="team"><div class="logo"></div><div class="team-name">Tým D</div></div>
             </div>
-            <div class="match-footer">Statistiky</div>
+            <a href="#" class="match-button">Statistiky</a>
         </div>
 
         <div class="match-card">
-            <div class="match-top">TFBL - 5. kolo (2014)</div>
             <div class="match-body">
                 <div class="team"><div class="logo"></div><div class="team-name">Loko</div></div>
                 <div class="score">2 : 1</div>
                 <div class="team"><div class="logo"></div><div class="team-name">Tým E</div></div>
             </div>
-            <div class="match-footer">Statistiky</div>
+            <a href="#" class="match-button">Statistiky</a>
         </div>
 
         <div class="match-card">
-            <div class="match-top">TFBL - 6. kolo (2014)</div>
             <div class="match-body">
                 <div class="team"><div class="logo"></div><div class="team-name">Loko</div></div>
                 <div class="score">5 : 2</div>
                 <div class="team"><div class="logo"></div><div class="team-name">Tým F</div></div>
             </div>
-            <div class="match-footer">Statistiky</div>
+            <a href="#" class="match-button">Statistiky</a>
         </div>
 
     </div>
