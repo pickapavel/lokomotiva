@@ -8,149 +8,143 @@
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
 
-body {
-    font-family: 'Oswald', sans-serif;
+body{
+    font-family:'Oswald',sans-serif;
     background:
-        radial-gradient(circle at 30% 30%, rgba(255,215,0,0.06), transparent 40%),
-        radial-gradient(circle at 70% 70%, rgba(255,215,0,0.05), transparent 40%),
-        linear-gradient(135deg, #0a0a0a 0%, #111111 50%, #0a0a0a 100%);
-    color: white;
+    radial-gradient(circle at 30% 30%, rgba(255,215,0,0.06), transparent 40%),
+    radial-gradient(circle at 70% 70%, rgba(255,215,0,0.05), transparent 40%),
+    linear-gradient(135deg,#0a0a0a 0%,#111111 50%,#0a0a0a 100%);
+    color:white;
 }
 
-/* ===== HLAVIČKA ===== */
+/* HLAVIČKA */
 
-.hero {
-    text-align: center;
-    padding: 50px 20px 40px 20px;
+.hero{
+    text-align:center;
+    padding:50px 20px 40px;
 }
 
-.club-small {
-    font-size: 18px;
-    letter-spacing: 4px;
-    color: #d4af37;
+.club-small{
+    font-size:18px;
+    letter-spacing:4px;
+    color:#d4af37;
 }
 
-.club-big {
-    font-size: 48px;
-    font-weight: 700;
-    background: linear-gradient(180deg, #ffd700 0%, #b8860b 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.club-big{
+    font-size:48px;
+    font-weight:700;
+    background:linear-gradient(180deg,#ffd700 0%,#b8860b 100%);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
 }
 
-/* ===== SLIDER ===== */
+/* SLIDER */
 
-.slider-wrapper {
-    width: 1000px; /* pevná šířka */
-    margin: 0 auto 80px auto;
-    position: relative;
-    overflow: hidden;
+.slider-wrapper{
+    width:1000px;
+    margin:0 auto 80px;
+    position:relative;
+    overflow:hidden;
 }
 
-.matches-slider {
-    display: flex;
-    transition: transform 0.4s ease;
-    gap: 20px;
+.matches-slider{
+    display:flex;
+    gap:20px;
+    transition:transform .4s ease;
 }
 
-/* 4 BOXy přesně do 1000px */
-.match-box {
-    width: calc((1000px - 60px) / 4); 
-    /* 60px = 3 mezery po 20px */
-    flex-shrink: 0;
+/* BOX */
 
-    background: linear-gradient(145deg, #141414, #0d0d0d);
-    border-radius: 8px;
-    border: 1px solid rgba(255,215,0,0.4);
-    overflow: hidden;
+.match-box{
+    width:235px; /* přesně spočítané */
+    flex-shrink:0;
+    background:linear-gradient(145deg,#141414,#0d0d0d);
+    border-radius:8px;
+    border:1px solid rgba(255,215,0,0.4);
+    overflow:hidden;
 }
 
-.match-header {
-    background: linear-gradient(90deg, #ffd700, #e6c200);
-    color: black;
-    font-size: 11px;
-    padding: 3px 6px;
-    font-weight: 600;
-    text-align: center;
+.match-header{
+    background:linear-gradient(90deg,#ffd700,#e6c200);
+    color:black;
+    font-size:11px;
+    padding:3px 6px;
+    font-weight:600;
+    text-align:center;
 }
 
-.match-content {
-    padding: 10px;
+.match-content{
+    padding:10px;
 }
 
-.teams {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.teams{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
 
-.team {
-    text-align: center;
-    width: 60px;
+.team{
+    text-align:center;
+    width:60px;
 }
 
-.logo-placeholder {
-    width: 28px;
-    height: 28px;
-    background: linear-gradient(135deg, #ffd700, #b8860b);
-    margin: 0 auto 4px auto;
-    border-radius: 4px;
+.logo-placeholder{
+    width:28px;
+    height:28px;
+    background:linear-gradient(135deg,#ffd700,#b8860b);
+    margin:0 auto 4px;
+    border-radius:4px;
 }
 
-.team-name {
-    font-size: 11px;
-    color: #ccc;
+.team-name{
+    font-size:11px;
+    color:#ccc;
 }
 
-.score {
-    font-size: 18px;
-    font-weight: 700;
-    color: #ffd700;
+.score{
+    font-size:18px;
+    font-weight:700;
+    color:#ffd700;
 }
 
-.match-link {
-    margin-top: 6px;
-    font-size: 11px;
-    text-align: center;
-    color: #ffd700;
+.match-link{
+    margin-top:6px;
+    font-size:11px;
+    text-align:center;
+    color:#ffd700;
 }
 
-/* ===== ŠIPKY ===== */
+/* ŠIPKY */
 
-.arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 20px;
-    background: rgba(0,0,0,0.7);
-    border: 1px solid #ffd700;
-    color: #ffd700;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 5;
+.arrow{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:20px;
+    background:rgba(0,0,0,0.7);
+    border:1px solid #ffd700;
+    color:#ffd700;
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    cursor:pointer;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
-.arrow-left { left: -60px; }
-.arrow-right { right: -60px; }
+.arrow-left{left:-55px;}
+.arrow-right{right:-55px;}
 
-.arrow:hover {
-    background: #ffd700;
-    color: black;
+.arrow:hover{
+    background:#ffd700;
+    color:black;
 }
-
 </style>
 </head>
+
 <body>
 
 <section class="hero">
@@ -160,46 +154,110 @@ body {
 
 <div class="slider-wrapper">
 
-    <div class="arrow arrow-left" onclick="prevSlide()">‹</div>
-    <div class="arrow arrow-right" onclick="nextSlide()">›</div>
+<div class="arrow arrow-left" onclick="prevSlide()">‹</div>
+<div class="arrow arrow-right" onclick="nextSlide()">›</div>
 
-    <div class="matches-slider" id="slider">
+<div class="matches-slider" id="slider">
 
-        <!-- 6 zápasů -->
+<!-- 6 zápasů -->
 
-        <div class="match-box">...</div>
-        <div class="match-box">...</div>
-        <div class="match-box">...</div>
-        <div class="match-box">...</div>
-        <div class="match-box">...</div>
-        <div class="match-box">...</div>
+<div class="match-box">
+<div class="match-header">TFBL - 1. kolo (2012)</div>
+<div class="match-content">
+<div class="teams">
+<div class="team"><div class="logo-placeholder"></div><div class="team-name">Lokomotiva</div></div>
+<div class="score">4 - 3</div>
+<div class="team"><div class="logo-placeholder"></div><div class="team-name">Tým A</div></div>
+</div>
+<div class="match-link">STATISTIKA</div>
+</div>
+</div>
 
-    </div>
+<div class="match-box">
+<div class="match-header">TFBL - 2. kolo (2012)</div>
+<div class="match-content">
+<div class="teams">
+<div class="team"><div class="logo-placeholder"></div><div class="team-name">Lokomotiva</div></div>
+<div class="score">2 - 6</div>
+<div class="team"><div class="logo-placeholder"></div><div class="team-name">Tým B</div></div>
+</div>
+<div class="match-link">STATISTIKA</div>
+</div>
+</div>
+
+<div class="match-box">
+<div class="match-header">TFBL - 3. kolo (2013)</div>
+<div class="match-content">
+<div class="teams">
+<div class="team"><div class="logo-placeholder"></div><div class="team-name">Lokomotiva</div></div>
+<div class="score">6 - 4</div>
+<div class="team"><div class="logo-placeholder"></div><div class="team-name">Tým C</div></div>
+</div>
+<div class="match-link">STATISTIKA</div>
+</div>
+</div>
+
+<div class="match-box">
+<div class="match-header">TFBL - 4. kolo (2013)</div>
+<div class="match-content">
+<div class="teams">
+<div class="team"><div class="logo-placeholder"></div><div class="team-name">Lokomotiva</div></div>
+<div class="score">3 - 5</div>
+<div class="team"><div class="logo-placeholder"></div><div class="team-name">Tým D</div></div>
+</div>
+<div class="match-link">STATISTIKA</div>
+</div>
+</div>
+
+<div class="match-box">
+<div class="match-header">TFBL - 5. kolo (2014)</div>
+<div class="match-content">
+<div class="teams">
+<div class="team"><div class="logo-placeholder"></div><div class="team-name">Lokomotiva</div></div>
+<div class="score">2 - 1</div>
+<div class="team"><div class="logo-placeholder"></div><div class="team-name">Tým E</div></div>
+</div>
+<div class="match-link">STATISTIKA</div>
+</div>
+</div>
+
+<div class="match-box">
+<div class="match-header">TFBL - 6. kolo (2014)</div>
+<div class="match-content">
+<div class="teams">
+<div class="team"><div class="logo-placeholder"></div><div class="team-name">Lokomotiva</div></div>
+<div class="score">5 - 2</div>
+<div class="team"><div class="logo-placeholder"></div><div class="team-name">Tým F</div></div>
+</div>
+<div class="match-link">STATISTIKA</div>
+</div>
+</div>
+
+</div>
 </div>
 
 <script>
-const slider = document.getElementById("slider");
-let position = 2; // začneme na posledních 4
+const slider=document.getElementById("slider");
+let position=2; // začínáme na posledních 4
 
 update();
 
 function prevSlide(){
-    if(position > 0){
-        position = 0;
+    if(position>0){
+        position=0;
         update();
     }
 }
 
 function nextSlide(){
-    if(position === 0){
-        position = 2;
+    if(position===0){
+        position=2;
         update();
     }
 }
 
 function update(){
-    const boxWidth = (1000 - 60) / 4 + 20;
-    slider.style.transform = `translateX(-${position * boxWidth}px)`;
+    slider.style.transform=`translateX(-${position*255}px)`;
 }
 </script>
 
