@@ -23,18 +23,18 @@ body{
     padding:60px 20px 40px;
 }
 
-.hero h1{
-    font-size:42px;
-    font-weight:800;
-    color:#ffd700;
-}
-
 .hero span{
     display:block;
     font-size:14px;
     letter-spacing:3px;
     color:#aaa;
     margin-bottom:10px;
+}
+
+.hero h1{
+    font-size:42px;
+    font-weight:800;
+    color:#ffd700;
 }
 
 /* ===== SLIDER ===== */
@@ -62,6 +62,12 @@ body{
     flex-shrink:0;
     box-shadow:0 8px 25px rgba(0,0,0,0.6);
     border:1px solid rgba(255,215,0,0.2);
+    transition:.2s;
+}
+
+.match-card:hover{
+    transform:translateY(-4px);
+    border-color:#ffd700;
 }
 
 .match-top{
@@ -98,7 +104,6 @@ body{
 .score{
     font-size:22px;
     font-weight:800;
-    color:white;
 }
 
 .match-footer{
@@ -109,7 +114,7 @@ body{
     cursor:pointer;
 }
 
-/* ===== MODERN ARROWS ===== */
+/* ===== ARROWS ===== */
 
 .arrow{
     position:absolute;
@@ -127,11 +132,17 @@ body{
     border:1px solid rgba(255,215,0,0.3);
     box-shadow:0 0 20px rgba(255,215,0,0.2);
     transition:.3s;
+    user-select:none;
 }
 
-.arrow:hover{
+.arrow:hover:not(.disabled){
     background:#ffd700;
     color:black;
+}
+
+.arrow.disabled{
+    opacity:.3;
+    cursor:default;
 }
 
 .arrow-left{left:-70px;}
@@ -148,8 +159,8 @@ body{
 
 <div class="slider-wrapper">
 
-<div class="arrow arrow-left" onclick="prevSlide()">‹</div>
-<div class="arrow arrow-right" onclick="nextSlide()">›</div>
+<div class="arrow arrow-left" id="prevBtn">‹</div>
+<div class="arrow arrow-right" id="nextBtn">›</div>
 
 <div class="matches-slider" id="slider">
 
@@ -219,28 +230,38 @@ body{
 </div>
 
 <script>
-const slider=document.getElementById("slider");
-let position=2; // začneme na posledních 4
+const slider = document.getElementById("slider");
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
 
-update();
+const cardWidth = 275; // 250 + 25 gap
+const totalCards = 6;
+const visibleCards = 4;
 
-function prevSlide(){
-    if(position>0){
-        position=0;
-        update();
+let index = totalCards - visibleCards; // start na nejnovějších 4
+
+function updateSlider(){
+    slider.style.transform = `translateX(-${index * cardWidth}px)`;
+
+    prevBtn.classList.toggle("disabled", index === 0);
+    nextBtn.classList.toggle("disabled", index === totalCards - visibleCards);
+}
+
+prevBtn.addEventListener("click", ()=>{
+    if(index > 0){
+        index -= 1;
+        updateSlider();
     }
-}
+});
 
-function nextSlide(){
-    if(position===0){
-        position=2;
-        update();
+nextBtn.addEventListener("click", ()=>{
+    if(index < totalCards - visibleCards){
+        index += 1;
+        updateSlider();
     }
-}
+});
 
-function update(){
-    slider.style.transform=`translateX(-${position*275}px)`;
-}
+updateSlider();
 </script>
 
 </body>
