@@ -20,7 +20,7 @@ body{
 
 .hero{
     text-align:center;
-    padding:60px 20px 40px;
+    padding:60px 20px 30px;
 }
 
 .hero span{
@@ -37,6 +37,24 @@ body{
     color:#ffd700;
 }
 
+/* 🔥 ODDELOVACÍ ČÁRA */
+
+.divider{
+    width:700px;
+    height:3px;
+    margin:30px auto 50px auto;
+    background:linear-gradient(
+        to right,
+        transparent,
+        rgba(255,215,0,0.3),
+        #ffd700,
+        rgba(255,215,0,0.3),
+        transparent
+    );
+    border-radius:3px;
+    box-shadow:0 0 12px rgba(255,215,0,0.6);
+}
+
 /* SLIDER */
 
 .slider-container{
@@ -48,7 +66,7 @@ body{
 }
 
 .slider-wrapper{
-    width:1100px; /* 4 boxy */
+    width:1100px;
     overflow:hidden;
     padding-top:10px;
 }
@@ -76,8 +94,6 @@ body{
     transform:translateY(-6px);
     border-color:#ffd700;
 }
-
-/* OBSAH */
 
 .match-body{
     display:flex;
@@ -109,7 +125,7 @@ body{
     font-weight:800;
 }
 
-/* TLAČÍTKO - TLUMENÉ */
+/* TLAČÍTKO */
 
 .match-button{
     display:block;
@@ -167,32 +183,14 @@ body{
     <h1>PACOVŠTÍ BLBOUNI</h1>
 </div>
 
+<div class="divider"></div>
+
 <div class="slider-container">
 
 <div class="arrow" id="prevBtn">‹</div>
 
 <div class="slider-wrapper">
     <div class="matches-slider" id="slider">
-
-        <!-- 6 zápasů -->
-
-        <div class="match-card">
-            <div class="match-body">
-                <div class="team"><div class="logo"></div><div class="team-name">Loko</div></div>
-                <div class="score">4 : 3</div>
-                <div class="team"><div class="logo"></div><div class="team-name">Tým A</div></div>
-            </div>
-            <a href="#" class="match-button">Statistiky</a>
-        </div>
-
-        <div class="match-card">
-            <div class="match-body">
-                <div class="team"><div class="logo"></div><div class="team-name">Loko</div></div>
-                <div class="score">2 : 6</div>
-                <div class="team"><div class="logo"></div><div class="team-name">Tým B</div></div>
-            </div>
-            <a href="#" class="match-button">Statistiky</a>
-        </div>
 
         <div class="match-card">
             <div class="match-body">
@@ -246,7 +244,7 @@ const cardWidth=275;
 const total=6;
 const visible=4;
 
-let index=total-visible;
+let index=2;
 
 function update(){
     slider.style.transform=`translateX(-${index*cardWidth}px)`;
