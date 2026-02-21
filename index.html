@@ -24,7 +24,6 @@ body {
     min-height: 100vh;
 }
 
-/* textura */
 body::before {
     content: "";
     position: fixed;
@@ -49,7 +48,6 @@ body::before {
 .club-big {
     font-size: 48px;
     font-weight: 700;
-    letter-spacing: 2px;
     background: linear-gradient(180deg, #ffd700 0%, #b8860b 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -72,13 +70,8 @@ body::before {
     scroll-behavior: smooth;
 }
 
-.matches-slider::-webkit-scrollbar {
-    display: none;
-}
-.matches-slider {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
+.matches-slider::-webkit-scrollbar { display: none; }
+.matches-slider { scrollbar-width: none; }
 
 /* ===== BOX ===== */
 
@@ -97,15 +90,18 @@ body::before {
     box-shadow: 0 0 15px rgba(255,215,0,0.25);
 }
 
+/* 🔥 MENŠÍ HLAVIČKA */
 .match-header {
     background: linear-gradient(90deg, #ffd700, #e6c200);
     color: black;
-    font-size: 12px;
-    padding: 5px;
+    font-size: 11px;
+    padding: 3px 6px;   /* ↓ výrazně menší */
     font-weight: 600;
     text-align: center;
+    line-height: 1.2;
 }
 
+/* OBSAH */
 .match-content {
     padding: 10px;
 }
@@ -147,7 +143,7 @@ body::before {
     color: #ffd700;
 }
 
-/* ===== FLORBALOVÝ MÍČEK ===== */
+/* FLORBALOVÝ MÍČEK */
 
 .ball {
     min-width: 18px;
@@ -158,7 +154,6 @@ body::before {
     box-shadow: 0 0 8px rgba(255,215,0,0.7);
 }
 
-/* dírky v míčku */
 .ball::before {
     content: "";
     position: absolute;
@@ -172,7 +167,7 @@ body::before {
     background-size: 8px 8px;
 }
 
-/* ===== ŠIPKY ===== */
+/* ŠIPKY */
 
 .arrow {
     position: absolute;
@@ -243,46 +238,6 @@ body::before {
                     <div class="team">
                         <div class="logo-placeholder"></div>
                         <div class="team-name">Chýnov</div>
-                    </div>
-                </div>
-                <div class="match-link">STATISTIKA</div>
-            </div>
-        </div>
-
-        <div class="ball"></div>
-
-        <div class="match-box">
-            <div class="match-header">TFBL - 3. kolo (2014)</div>
-            <div class="match-content">
-                <div class="teams">
-                    <div class="team">
-                        <div class="logo-placeholder"></div>
-                        <div class="team-name">Lokomotiva</div>
-                    </div>
-                    <div class="score">2 - 1</div>
-                    <div class="team">
-                        <div class="logo-placeholder"></div>
-                        <div class="team-name">Vajgar</div>
-                    </div>
-                </div>
-                <div class="match-link">STATISTIKA</div>
-            </div>
-        </div>
-
-        <div class="ball"></div>
-
-        <div class="match-box">
-            <div class="match-header">TFBL - 4. kolo (2014)</div>
-            <div class="match-content">
-                <div class="teams">
-                    <div class="team">
-                        <div class="logo-placeholder"></div>
-                        <div class="team-name">Lokomotiva</div>
-                    </div>
-                    <div class="score">2 - 1</div>
-                    <div class="team">
-                        <div class="logo-placeholder"></div>
-                        <div class="team-name">RR Tábor</div>
                     </div>
                 </div>
                 <div class="match-link">STATISTIKA</div>
