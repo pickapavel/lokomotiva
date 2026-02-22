@@ -23,7 +23,6 @@ body{
 
 .top-slider{
     padding-top:30px;
-    margin-bottom:15px;
 }
 
 .slider-container{
@@ -106,7 +105,6 @@ body{
 .match-button:hover{
     border-color:#ffd700;
     color:#ffd700;
-    background:#242424;
 }
 
 /* ARROWS */
@@ -142,13 +140,53 @@ body{
 
 .header-section{
     position:relative;
-    margin-top:5px;
-    padding:10px 0 45px 0;
+    margin-top:30px;
+    padding-bottom:70px;
 }
+
+.header-wrapper{
+    width:1100px;
+    margin:0 auto;
+    position:relative;
+}
+
+.header-content{
+    display:flex;
+    align-items:center;
+    gap:40px;
+    position:relative;
+    transition:margin-left .4s ease;
+}
+
+/* LOGO */
+.logo-img{
+    width:220px;
+    filter: drop-shadow(0 0 20px rgba(255,215,0,0.6));
+}
+
+/* TEXT */
+
+.title-block span{
+    display:block;
+    font-size:14px;
+    letter-spacing:6px;
+    color:#999;
+    margin-bottom:15px;
+}
+
+.title-block h1{
+    font-size:64px;
+    font-weight:900;
+    letter-spacing:2px;
+    line-height:1;
+    color:#f4c400;
+}
+
+/* FULL WIDTH GOLD LINE */
 
 .full-divider{
     position:absolute;
-    top:70%;
+    bottom:0;
     left:0;
     width:100vw;
     height:2px;
@@ -161,67 +199,13 @@ body{
         transparent 100%
     );
     box-shadow:0 0 18px rgba(255,215,0,0.6);
-    z-index:1;
-}
-
-.header-wrapper{
-    width:1100px;
-    margin:0 auto;
-    position:relative;
-    z-index:2;
-}
-
-.header-content{
-    display:flex;
-    align-items:center; /* zarovná text na střed loga */
-    gap:40px;
-}
-
-/* 🔥 VĚTŠÍ LOGO */
-.logo-img{
-    width:260px;  /* hlavní změna */
-    position:relative;
-    z-index:3;
-    filter: drop-shadow(0 0 15px rgba(255,215,0,0.5));
-}
-
-/* TEXT */
-
-.title-block span{
-    display:block;
-    font-size:14px;
-    letter-spacing:6px;
-    color:#888;
-    margin-bottom:15px;
-}
-
-.title-block h1{
-    font-size:60px;
-    font-weight:900;
-    letter-spacing:2px;
-    line-height:1;
-    color:#f4c400;
-    position:relative;
-}
-
-/* jemná spodní hrana */
-.title-block h1::after{
-    content:"";
-    position:absolute;
-    left:0;
-    bottom:-10px;
-    width:100%;
-    height:10px;
-    background:linear-gradient(
-        to bottom,
-        rgba(255,215,0,0.4),
-        transparent
-    );
 }
 
 </style>
 </head>
 <body>
+
+<!-- ================= SLIDER ================= -->
 
 <div class="top-slider">
     <div class="slider-container">
@@ -230,12 +214,17 @@ body{
         <div class="slider-wrapper">
             <div class="matches-slider" id="slider">
 
-                <div class="match-card"><div class="match-body"><div class="team"><div class="logo"></div><div class="team-name">Loko</div></div><div class="score">4 : 3</div><div class="team"><div class="logo"></div><div class="team-name">Tým A</div></div></div><a href="#" class="match-button">Statistiky</a></div>
-                <div class="match-card"><div class="match-body"><div class="team"><div class="logo"></div><div class="team-name">Loko</div></div><div class="score">2 : 6</div><div class="team"><div class="logo"></div><div class="team-name">Tým B</div></div></div><a href="#" class="match-button">Statistiky</a></div>
                 <div class="match-card"><div class="match-body"><div class="team"><div class="logo"></div><div class="team-name">Loko</div></div><div class="score">6 : 4</div><div class="team"><div class="logo"></div><div class="team-name">Tým C</div></div></div><a href="#" class="match-button">Statistiky</a></div>
+
                 <div class="match-card"><div class="match-body"><div class="team"><div class="logo"></div><div class="team-name">Loko</div></div><div class="score">3 : 5</div><div class="team"><div class="logo"></div><div class="team-name">Tým D</div></div></div><a href="#" class="match-button">Statistiky</a></div>
+
                 <div class="match-card"><div class="match-body"><div class="team"><div class="logo"></div><div class="team-name">Loko</div></div><div class="score">2 : 1</div><div class="team"><div class="logo"></div><div class="team-name">Tým E</div></div></div><a href="#" class="match-button">Statistiky</a></div>
+
                 <div class="match-card"><div class="match-body"><div class="team"><div class="logo"></div><div class="team-name">Loko</div></div><div class="score">5 : 2</div><div class="team"><div class="logo"></div><div class="team-name">Tým F</div></div></div><a href="#" class="match-button">Statistiky</a></div>
+
+                <div class="match-card"><div class="match-body"><div class="team"><div class="logo"></div><div class="team-name">Loko</div></div><div class="score">4 : 3</div><div class="team"><div class="logo"></div><div class="team-name">Tým A</div></div></div><a href="#" class="match-button">Statistiky</a></div>
+
+                <div class="match-card"><div class="match-body"><div class="team"><div class="logo"></div><div class="team-name">Loko</div></div><div class="score">2 : 6</div><div class="team"><div class="logo"></div><div class="team-name">Tým B</div></div></div><a href="#" class="match-button">Statistiky</a></div>
 
             </div>
         </div>
@@ -244,13 +233,12 @@ body{
     </div>
 </div>
 
+<!-- ================= HEADER ================= -->
+
 <div class="header-section">
-
-    <div class="full-divider"></div>
-
     <div class="header-wrapper">
-        <div class="header-content">
-            <img src="img/logo.png" alt="Logo" class="logo-img">
+        <div class="header-content" id="headerContent">
+            <img src="img/logo.png" class="logo-img">
             <div class="title-block">
                 <span>TJ LOKOMOTIVA</span>
                 <h1>PACOVŠTÍ BLBOUNI</h1>
@@ -258,12 +246,14 @@ body{
         </div>
     </div>
 
+    <div class="full-divider"></div>
 </div>
 
 <script>
 const slider=document.getElementById("slider");
 const prevBtn=document.getElementById("prevBtn");
 const nextBtn=document.getElementById("nextBtn");
+const headerContent=document.getElementById("headerContent");
 
 const cardWidth=265;
 const total=6;
@@ -275,15 +265,21 @@ function update(){
     slider.style.transform=`translateX(-${index*cardWidth}px)`;
     prevBtn.classList.toggle("disabled",index===0);
     nextBtn.classList.toggle("disabled",index===total-visible);
+    alignHeader();
 }
 
-prevBtn.onclick=()=>{
-    if(index>0){index--;update();}
-};
+function alignHeader(){
+    const firstVisibleCard=slider.children[index];
+    const wrapperRect=document.querySelector(".slider-wrapper").getBoundingClientRect();
+    const cardRect=firstVisibleCard.getBoundingClientRect();
+    const offset=cardRect.left-wrapperRect.left;
+    headerContent.style.marginLeft=offset+"px";
+}
 
-nextBtn.onclick=()=>{
-    if(index<total-visible){index++;update();}
-};
+prevBtn.onclick=()=>{ if(index>0){index--;update();} };
+nextBtn.onclick=()=>{ if(index<total-visible){index++;update();} };
+
+window.addEventListener("resize",alignHeader);
 
 update();
 </script>
