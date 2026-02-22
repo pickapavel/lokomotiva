@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lokomotiva</title>
+<title>TJ Lokomotiva - Pacovští Blbouni</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -14,78 +14,16 @@ body{
     font-family:'Inter',sans-serif;
     background:linear-gradient(120deg,#0c0c0c,#121212);
     color:white;
+    overflow-x:hidden;
 }
 
-/* ===== HEADER POD SLIDEREM ===== */
-
-.header-section{
-    position:relative;
-    margin-top:40px;
-    padding:40px 0 60px 0;
-}
-
-/* ČÁRA přes celý viewport */
-.full-divider{
-    position:absolute;
-    top:65%; /* spodní třetina loga */
-    left:0;
-    width:100vw;
-    height:3px;
-    background:linear-gradient(
-        to right,
-        transparent 0%,
-        rgba(255,215,0,0.4) 10%,
-        #ffd700 50%,
-        rgba(255,215,0,0.4) 90%,
-        transparent 100%
-    );
-    box-shadow:0 0 25px rgba(255,215,0,0.7);
-    z-index:1;
-}
-
-/* Obsah */
-.header-wrapper{
-    width:1100px;
-    margin:0 auto;
-    position:relative;
-    z-index:2; /* nad čarou */
-}
-
-.header-content{
-    display:flex;
-    align-items:flex-start; /* horní hrany zarovnané */
-    gap:30px;
-}
-
-.logo-img{
-    width:140px; /* větší logo */
-    position:relative;
-    z-index:3;
-}
-
-.title-block{
-    padding-top:5px; /* jemné doladění */
-}
-
-.title-block span{
-    display:block;
-    font-size:14px;
-    letter-spacing:3px;
-    color:#aaa;
-    margin-bottom:8px;
-}
-
-.title-block h1{
-    font-size:42px;
-    font-weight:800;
-    color:#ffd700;
-}
-
-/* ===== SLIDER ===== */
+/* ========================= */
+/* 🔝 SLIDER */
+/* ========================= */
 
 .top-slider{
-    padding-top:25px;
-    margin-bottom:30px;
+    padding-top:30px;
+    margin-bottom:25px;
 }
 
 .slider-container{
@@ -147,7 +85,7 @@ body{
 }
 
 .score{
-    font-size:21px;
+    font-size:22px;
     font-weight:800;
 }
 
@@ -170,6 +108,8 @@ body{
     color:#ffd700;
     background:#242424;
 }
+
+/* ARROWS */
 
 .arrow{
     width:48px;
@@ -196,11 +136,88 @@ body{
     cursor:default;
 }
 
+/* ========================= */
+/* 🏆 HEADER */
+/* ========================= */
+
+.header-section{
+    position:relative;
+    margin-top:15px;
+    padding:25px 0 60px 0;
+}
+
+/* Zlatá čára přes celý viewport */
+.full-divider{
+    position:absolute;
+    top:72%;
+    left:0;
+    width:100vw;
+    height:3px;
+    background:linear-gradient(
+        to right,
+        transparent 0%,
+        rgba(255,215,0,0.5) 10%,
+        #ffd700 50%,
+        rgba(255,215,0,0.5) 90%,
+        transparent 100%
+    );
+    box-shadow:0 0 30px rgba(255,215,0,0.8);
+    z-index:1;
+}
+
+.header-wrapper{
+    width:1100px;
+    margin:0 auto;
+    position:relative;
+    z-index:2;
+}
+
+.header-content{
+    display:flex;
+    align-items:flex-start;
+    gap:35px;
+}
+
+.logo-img{
+    width:180px;
+    position:relative;
+    z-index:3;
+    filter: drop-shadow(0 0 15px rgba(255,215,0,0.6));
+}
+
+.title-block{
+    padding-top:10px;
+}
+
+.title-block span{
+    display:block;
+    font-size:14px;
+    letter-spacing:4px;
+    color:#9a9a9a;
+    margin-bottom:10px;
+}
+
+.title-block h1{
+    font-size:52px;
+    font-weight:900;
+    letter-spacing:1px;
+    line-height:1.1;
+
+    background:linear-gradient(180deg,#ffd700 0%,#ffcc00 60%,#d4a900 100%);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+    text-shadow:
+        0 0 15px rgba(255,215,0,0.5),
+        0 0 30px rgba(255,215,0,0.2);
+}
+
 </style>
 </head>
 <body>
 
-<!-- SLIDER -->
+<!-- 🔝 BOXÍKY -->
+
 <div class="top-slider">
     <div class="slider-container">
         <div class="arrow" id="prevBtn">‹</div>
@@ -209,10 +226,15 @@ body{
             <div class="matches-slider" id="slider">
 
                 <div class="match-card"><div class="match-body"><div class="team"><div class="logo"></div><div class="team-name">Loko</div></div><div class="score">4 : 3</div><div class="team"><div class="logo"></div><div class="team-name">Tým A</div></div></div><a href="#" class="match-button">Statistiky</a></div>
+
                 <div class="match-card"><div class="match-body"><div class="team"><div class="logo"></div><div class="team-name">Loko</div></div><div class="score">2 : 6</div><div class="team"><div class="logo"></div><div class="team-name">Tým B</div></div></div><a href="#" class="match-button">Statistiky</a></div>
+
                 <div class="match-card"><div class="match-body"><div class="team"><div class="logo"></div><div class="team-name">Loko</div></div><div class="score">6 : 4</div><div class="team"><div class="logo"></div><div class="team-name">Tým C</div></div></div><a href="#" class="match-button">Statistiky</a></div>
+
                 <div class="match-card"><div class="match-body"><div class="team"><div class="logo"></div><div class="team-name">Loko</div></div><div class="score">3 : 5</div><div class="team"><div class="logo"></div><div class="team-name">Tým D</div></div></div><a href="#" class="match-button">Statistiky</a></div>
+
                 <div class="match-card"><div class="match-body"><div class="team"><div class="logo"></div><div class="team-name">Loko</div></div><div class="score">2 : 1</div><div class="team"><div class="logo"></div><div class="team-name">Tým E</div></div></div><a href="#" class="match-button">Statistiky</a></div>
+
                 <div class="match-card"><div class="match-body"><div class="team"><div class="logo"></div><div class="team-name">Loko</div></div><div class="score">5 : 2</div><div class="team"><div class="logo"></div><div class="team-name">Tým F</div></div></div><a href="#" class="match-button">Statistiky</a></div>
 
             </div>
@@ -222,7 +244,8 @@ body{
     </div>
 </div>
 
-<!-- HEADER -->
+<!-- 🏆 LOGO + NADPIS -->
+
 <div class="header-section">
 
     <div class="full-divider"></div>
