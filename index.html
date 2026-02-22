@@ -5,198 +5,287 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TJ Lokomotiva – Pacovští Blbouni</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+
 <style>
-:root {
-    --gold: #ffd700;
-    --bg1: #0c0c0c;
-    --bg2: #121212;
-    --gray: #1a1a1a;
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:linear-gradient(120deg,#0c0c0c,#121212);
+    color:white;
+    overflow-x:hidden;
 }
 
-* { box-sizing: border-box; margin:0; padding:0; }
+/* ========================= */
+/* 🔝 SLIDER */
+/* ========================= */
 
-body {
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(to bottom, var(--bg1), var(--bg2));
-    color: white;
+.top-slider{
+    padding-top:30px;
+    margin-bottom:15px;
 }
 
-.page-container {
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 50px 20px 0 20px;
-    position: relative;
+.slider-container{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:15px;
 }
 
-/* ===== SLIDER ===== */
-
-.slider-wrapper { position: relative; }
-
-.slider-container { overflow: hidden; }
-
-.slider {
-    display: flex;
-    gap: 20px;
-    transition: transform 0.5s ease;
+.slider-wrapper{
+    width:1070px;
+    overflow:hidden;
 }
 
-.match-box {
-    flex: 0 0 calc((100% - 60px) / 4);
-    background: var(--gray);
-    border: 1px solid rgba(255,215,0,0.4);
-    padding: 22px;
-    border-radius: 10px;
+.matches-slider{
+    display:flex;
+    gap:15px;
+    transition:transform .4s ease;
 }
 
-.match-date { font-size:14px; color:#aaa; margin-bottom:10px; }
-.match-teams { font-weight:600; margin-bottom:12px; }
-.match-score { font-size:22px; font-weight:bold; color:var(--gold); margin-bottom:15px; }
+.match-card{
+    width:250px;
+    flex-shrink:0;
+    background:#1a1a1a;
+    border-radius:14px;
+    padding:14px 16px;
+    border:1px solid rgba(255,215,0,0.25);
+    box-shadow:0 6px 18px rgba(0,0,0,0.6);
+    transition:.2s;
+}
 
-.match-btn {
-    padding:6px 14px;
-    background:#2a2a2a;
-    border:1px solid transparent;
+.match-card:hover{
+    border-color:#ffd700;
+}
+
+.match-body{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:10px;
+}
+
+.team{
+    text-align:center;
+    width:60px;
+}
+
+.logo{
+    width:30px;
+    height:30px;
+    background:#ffd700;
+    border-radius:8px;
+    margin:0 auto 5px;
+}
+
+.team-name{
+    font-size:12px;
     color:#ccc;
-    cursor:pointer;
 }
 
-.arrow {
+.score{
+    font-size:22px;
+    font-weight:800;
+}
+
+.match-button{
+    display:block;
+    text-align:center;
+    padding:6px 0;
+    border-radius:8px;
+    background:#2a2a2a;
+    color:#ccc;
+    font-size:12px;
+    font-weight:600;
+    text-decoration:none;
+    border:1px solid #333;
+    transition:.2s;
+}
+
+.match-button:hover{
+    border-color:#ffd700;
+    color:#ffd700;
+    background:#242424;
+}
+
+/* ARROWS */
+
+.arrow{
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    background:#1f1f1f;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:20px;
+    cursor:pointer;
+    border:1px solid rgba(255,215,0,0.4);
+    box-shadow:0 0 18px rgba(255,215,0,0.2);
+    transition:.3s;
+}
+
+.arrow:hover:not(.disabled){
+    background:#ffd700;
+    color:black;
+}
+
+.arrow.disabled{
+    opacity:.3;
+    cursor:default;
+}
+
+/* ========================= */
+/* 🏆 HEADER */
+/* ========================= */
+
+.header-section{
+    position:relative;
+    margin-top:5px;
+    padding:10px 0 45px 0;
+}
+
+.full-divider{
     position:absolute;
-    top:50%;
-    transform:translateY(-50%);
-    font-size:28px;
-    color:var(--gold);
-    cursor:pointer;
+    top:70%;
+    left:0;
+    width:100vw;
+    height:2px;
+    background:linear-gradient(
+        to right,
+        transparent 0%,
+        rgba(255,215,0,0.6) 12%,
+        #ffd700 50%,
+        rgba(255,215,0,0.6) 88%,
+        transparent 100%
+    );
+    box-shadow:0 0 18px rgba(255,215,0,0.6);
+    z-index:1;
 }
 
-.arrow-left { left:-40px; }
-.arrow-right { right:-40px; }
-
-/* ===== CLUB ===== */
-
-.club-section {
-    margin-top: 70px;
-    position: relative;
+.header-wrapper{
+    width:1100px;
+    margin:0 auto;
+    position:relative;
+    z-index:2;
 }
 
-.club-header {
-    display: flex;
-    align-items: center;
-    gap: 35px;
-    position: relative;
+.header-content{
+    display:flex;
+    align-items:center; /* zarovná text na střed loga */
+    gap:40px;
 }
 
-.club-logo {
-    width: 170px;
+/* 🔥 VĚTŠÍ LOGO */
+.logo-img{
+    width:260px;  /* hlavní změna */
+    position:relative;
+    z-index:3;
+    filter: drop-shadow(0 0 15px rgba(255,215,0,0.5));
 }
 
-.club-subtitle {
-    font-size: 14px;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 10px;
+/* TEXT */
+
+.title-block span{
+    display:block;
+    font-size:14px;
+    letter-spacing:6px;
+    color:#888;
+    margin-bottom:15px;
 }
 
-.club-title {
-    font-size: 64px;
-    font-weight: 900;
-    color: var(--gold);
+.title-block h1{
+    font-size:60px;
+    font-weight:900;
+    letter-spacing:2px;
+    line-height:1;
+    color:#f4c400;
+    position:relative;
 }
 
-.gold-line {
-    margin-top: 30px;
-    width: 100vw;
-    height: 2px;
-    background: var(--gold);
-    box-shadow: 0 0 12px var(--gold);
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
+/* jemná spodní hrana */
+.title-block h1::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-10px;
+    width:100%;
+    height:10px;
+    background:linear-gradient(
+        to bottom,
+        rgba(255,215,0,0.4),
+        transparent
+    );
 }
+
 </style>
 </head>
-
 <body>
 
-<div class="page-container">
+<div class="top-slider">
+    <div class="slider-container">
+        <div class="arrow" id="prevBtn">‹</div>
 
-    <!-- SLIDER -->
-    <div class="slider-wrapper">
-        <div class="arrow arrow-left">&#10094;</div>
-        <div class="arrow arrow-right">&#10095;</div>
+        <div class="slider-wrapper">
+            <div class="matches-slider" id="slider">
 
-        <div class="slider-container">
-            <div class="slider" id="slider">
-
-                <div class="match-box">Pacov vs Brno<br><br><span class="match-score">0 : 0</span></div>
-                <div class="match-box">Ostrava vs Pacov<br><br><span class="match-score">1 : 2</span></div>
-                <div class="match-box">Pacov vs Plzeň<br><br><span class="match-score">3 : 0</span></div>
-                <div class="match-box">Liberec vs Pacov<br><br><span class="match-score">2 : 2</span></div>
-                <div class="match-box">Pacov vs Slavia<br><br><span class="match-score">1 : 0</span></div>
-                <div class="match-box">Sparta vs Pacov<br><br><span class="match-score">2 : 1</span></div>
+                <div class="match-card"><div class="match-body"><div class="team"><div class="logo"></div><div class="team-name">Loko</div></div><div class="score">4 : 3</div><div class="team"><div class="logo"></div><div class="team-name">Tým A</div></div></div><a href="#" class="match-button">Statistiky</a></div>
+                <div class="match-card"><div class="match-body"><div class="team"><div class="logo"></div><div class="team-name">Loko</div></div><div class="score">2 : 6</div><div class="team"><div class="logo"></div><div class="team-name">Tým B</div></div></div><a href="#" class="match-button">Statistiky</a></div>
+                <div class="match-card"><div class="match-body"><div class="team"><div class="logo"></div><div class="team-name">Loko</div></div><div class="score">6 : 4</div><div class="team"><div class="logo"></div><div class="team-name">Tým C</div></div></div><a href="#" class="match-button">Statistiky</a></div>
+                <div class="match-card"><div class="match-body"><div class="team"><div class="logo"></div><div class="team-name">Loko</div></div><div class="score">3 : 5</div><div class="team"><div class="logo"></div><div class="team-name">Tým D</div></div></div><a href="#" class="match-button">Statistiky</a></div>
+                <div class="match-card"><div class="match-body"><div class="team"><div class="logo"></div><div class="team-name">Loko</div></div><div class="score">2 : 1</div><div class="team"><div class="logo"></div><div class="team-name">Tým E</div></div></div><a href="#" class="match-button">Statistiky</a></div>
+                <div class="match-card"><div class="match-body"><div class="team"><div class="logo"></div><div class="team-name">Loko</div></div><div class="score">5 : 2</div><div class="team"><div class="logo"></div><div class="team-name">Tým F</div></div></div><a href="#" class="match-button">Statistiky</a></div>
 
             </div>
         </div>
+
+        <div class="arrow" id="nextBtn">›</div>
     </div>
+</div>
 
-    <!-- CLUB -->
-    <div class="club-section">
-        <div class="club-header" id="clubHeader">
-            <img src="img/logo.png" class="club-logo" id="clubLogo">
-            <div>
-                <div class="club-subtitle">TJ LOKOMOTIVA</div>
-                <div class="club-title">PACOVŠTÍ BLBOUNI</div>
+<div class="header-section">
+
+    <div class="full-divider"></div>
+
+    <div class="header-wrapper">
+        <div class="header-content">
+            <img src="img/logo.png" alt="Logo" class="logo-img">
+            <div class="title-block">
+                <span>TJ LOKOMOTIVA</span>
+                <h1>PACOVŠTÍ BLBOUNI</h1>
             </div>
         </div>
-
-        <div class="gold-line"></div>
     </div>
 
 </div>
 
 <script>
-const slider = document.getElementById("slider");
-const leftArrow = document.querySelector(".arrow-left");
-const rightArrow = document.querySelector(".arrow-right");
-const clubHeader = document.getElementById("clubHeader");
+const slider=document.getElementById("slider");
+const prevBtn=document.getElementById("prevBtn");
+const nextBtn=document.getElementById("nextBtn");
 
-const total = slider.children.length;
-let visible = 4;
-let index = total - visible;
+const cardWidth=265;
+const total=6;
+const visible=4;
 
-function updateSlider() {
-    const boxWidth = slider.children[0].offsetWidth + 20;
-    slider.style.transform = `translateX(-${index * boxWidth}px)`;
-    updateLogoPosition();
+let index=total-visible;
+
+function update(){
+    slider.style.transform=`translateX(-${index*cardWidth}px)`;
+    prevBtn.classList.toggle("disabled",index===0);
+    nextBtn.classList.toggle("disabled",index===total-visible);
 }
 
-function updateLogoPosition() {
-    const firstVisibleBox = slider.children[index];
-    const containerRect = document.querySelector(".page-container").getBoundingClientRect();
-    const boxRect = firstVisibleBox.getBoundingClientRect();
+prevBtn.onclick=()=>{
+    if(index>0){index--;update();}
+};
 
-    const offsetLeft = boxRect.left - containerRect.left;
-    clubHeader.style.marginLeft = offsetLeft + "px";
-}
+nextBtn.onclick=()=>{
+    if(index<total-visible){index++;update();}
+};
 
-rightArrow.addEventListener("click", () => {
-    if (index < total - visible) {
-        index++;
-        updateSlider();
-    }
-});
-
-leftArrow.addEventListener("click", () => {
-    if (index > 0) {
-        index--;
-        updateSlider();
-    }
-});
-
-window.addEventListener("resize", updateLogoPosition);
-
-updateSlider();
+update();
 </script>
 
 </body>
