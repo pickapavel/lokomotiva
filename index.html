@@ -17,7 +17,7 @@ body{
     overflow-x:hidden;
 }
 
-/* ================= SLIDER ================= */
+/* SLIDER */
 
 .top-slider{
     padding-top:30px;
@@ -47,50 +47,9 @@ body{
     border-radius:14px;
     padding:14px 16px;
     border:1px solid rgba(255,215,0,0.25);
-    box-shadow:0 6px 18px rgba(0,0,0,0.6);
 }
 
-.match-body{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:10px;
-}
-
-.team{text-align:center;width:60px;}
-.logo{width:30px;height:30px;background:#ffd700;border-radius:8px;margin:0 auto 5px;}
-.team-name{font-size:12px;color:#ccc;}
-.score{font-size:22px;font-weight:800;}
-
-.match-button{
-    display:block;
-    text-align:center;
-    padding:6px 0;
-    border-radius:8px;
-    background:#2a2a2a;
-    color:#ccc;
-    font-size:12px;
-    font-weight:600;
-    text-decoration:none;
-    border:1px solid #333;
-}
-
-/* ARROWS */
-
-.arrow{
-    width:48px;
-    height:48px;
-    border-radius:50%;
-    background:#1f1f1f;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:20px;
-    cursor:pointer;
-    border:1px solid rgba(255,215,0,0.4);
-}
-
-/* ================= HEADER ================= */
+/* HEADER */
 
 .header-section{
     margin-top:40px;
@@ -98,17 +57,18 @@ body{
     position:relative;
 }
 
-/* DŮLEŽITÉ: STEJNÁ ŠÍŘKA JAKO SLIDER */
-
 .header-wrapper{
-    width:1070px;
+    width:1100px;
     margin:0 auto;
+    position:relative;
 }
 
 .header-content{
     display:flex;
     align-items:center;
     gap:40px;
+    position:relative;
+    transition:transform .3s ease;
 }
 
 .logo-img{
@@ -127,12 +87,8 @@ body{
 .title-block h1{
     font-size:64px;
     font-weight:900;
-    letter-spacing:2px;
-    line-height:1;
     color:#f4c400;
 }
-
-/* FULL WIDTH GOLD LINE */
 
 .full-divider{
     position:absolute;
@@ -147,47 +103,26 @@ body{
 </head>
 <body>
 
-<!-- SLIDER -->
 <div class="top-slider">
     <div class="slider-container">
-        <div class="arrow">‹</div>
 
-        <div class="slider-wrapper">
+        <div class="slider-wrapper" id="sliderWrapper">
             <div class="matches-slider">
 
-                <div class="match-card">
-                    <div class="match-body">
-                        <div class="team"><div class="logo"></div><div class="team-name">Loko</div></div>
-                        <div class="score">2 : 1</div>
-                        <div class="team"><div class="logo"></div><div class="team-name">Tým E</div></div>
-                    </div>
-                    <a href="#" class="match-button">Statistiky</a>
-                </div>
-
-                <div class="match-card">
-                    <div class="match-body">
-                        <div class="team"><div class="logo"></div><div class="team-name">Loko</div></div>
-                        <div class="score">5 : 2</div>
-                        <div class="team"><div class="logo"></div><div class="team-name">Tým F</div></div>
-                    </div>
-                    <a href="#" class="match-button">Statistiky</a>
-                </div>
-
-                <div class="match-card">...</div>
-                <div class="match-card">...</div>
+                <div class="match-card">KARTA 1</div>
+                <div class="match-card">KARTA 2</div>
+                <div class="match-card">KARTA 3</div>
+                <div class="match-card">KARTA 4</div>
 
             </div>
         </div>
 
-        <div class="arrow">›</div>
     </div>
 </div>
 
-<!-- HEADER -->
 <div class="header-section">
-
     <div class="header-wrapper">
-        <div class="header-content">
+        <div class="header-content" id="headerContent">
             <img src="img/logo.png" class="logo-img">
             <div class="title-block">
                 <span>TJ LOKOMOTIVA</span>
@@ -195,10 +130,26 @@ body{
             </div>
         </div>
     </div>
-
     <div class="full-divider"></div>
-
 </div>
+
+<script>
+function alignLogo(){
+    const firstCard = document.querySelector(".match-card");
+    const headerWrapper = document.querySelector(".header-wrapper");
+    const headerContent = document.getElementById("headerContent");
+
+    const cardRect = firstCard.getBoundingClientRect();
+    const wrapperRect = headerWrapper.getBoundingClientRect();
+
+    const offset = cardRect.left - wrapperRect.left;
+
+    headerContent.style.transform = `translateX(${offset}px)`;
+}
+
+window.addEventListener("load", alignLogo);
+window.addEventListener("resize", alignLogo);
+</script>
 
 </body>
 </html>
