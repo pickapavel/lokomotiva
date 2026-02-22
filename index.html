@@ -38,7 +38,6 @@ body{
 .matches-slider{
     display:flex;
     gap:15px;
-    transition:transform .4s ease;
 }
 
 .match-card{
@@ -91,31 +90,25 @@ body{
     border:1px solid rgba(255,215,0,0.4);
 }
 
-.arrow.disabled{
-    opacity:.3;
-    cursor:default;
-}
-
 /* ================= HEADER ================= */
 
 .header-section{
-    position:relative;
     margin-top:40px;
     padding-bottom:70px;
+    position:relative;
 }
 
+/* DŮLEŽITÉ: STEJNÁ ŠÍŘKA JAKO SLIDER */
+
 .header-wrapper{
-    width:1100px;
+    width:1070px;
     margin:0 auto;
-    position:relative;
 }
 
 .header-content{
     display:flex;
     align-items:center;
     gap:40px;
-    position:relative;
-    transition:left .4s ease;
 }
 
 .logo-img{
@@ -139,7 +132,7 @@ body{
     color:#f4c400;
 }
 
-/* FULL WIDTH LINE */
+/* FULL WIDTH GOLD LINE */
 
 .full-divider{
     position:absolute;
@@ -154,20 +147,31 @@ body{
 </head>
 <body>
 
+<!-- SLIDER -->
 <div class="top-slider">
     <div class="slider-container">
-        <div class="arrow" id="prevBtn">‹</div>
+        <div class="arrow">‹</div>
 
-        <div class="slider-wrapper" id="sliderWrapper">
-            <div class="matches-slider" id="slider">
+        <div class="slider-wrapper">
+            <div class="matches-slider">
 
-                <div class="match-card"><div class="match-body"><div class="team"><div class="logo"></div><div class="team-name">Loko</div></div><div class="score">6 : 4</div><div class="team"><div class="logo"></div><div class="team-name">Tým C</div></div></div><a href="#" class="match-button">Statistiky</a></div>
+                <div class="match-card">
+                    <div class="match-body">
+                        <div class="team"><div class="logo"></div><div class="team-name">Loko</div></div>
+                        <div class="score">2 : 1</div>
+                        <div class="team"><div class="logo"></div><div class="team-name">Tým E</div></div>
+                    </div>
+                    <a href="#" class="match-button">Statistiky</a>
+                </div>
 
-                <div class="match-card"><div class="match-body"><div class="team"><div class="logo"></div><div class="team-name">Loko</div></div><div class="score">3 : 5</div><div class="team"><div class="logo"></div><div class="team-name">Tým D</div></div></div><a href="#" class="match-button">Statistiky</a></div>
-
-                <div class="match-card"><div class="match-body"><div class="team"><div class="logo"></div><div class="team-name">Loko</div></div><div class="score">2 : 1</div><div class="team"><div class="logo"></div><div class="team-name">Tým E</div></div></div><a href="#" class="match-button">Statistiky</a></div>
-
-                <div class="match-card"><div class="match-body"><div class="team"><div class="logo"></div><div class="team-name">Loko</div></div><div class="score">5 : 2</div><div class="team"><div class="logo"></div><div class="team-name">Tým F</div></div></div><a href="#" class="match-button">Statistiky</a></div>
+                <div class="match-card">
+                    <div class="match-body">
+                        <div class="team"><div class="logo"></div><div class="team-name">Loko</div></div>
+                        <div class="score">5 : 2</div>
+                        <div class="team"><div class="logo"></div><div class="team-name">Tým F</div></div>
+                    </div>
+                    <a href="#" class="match-button">Statistiky</a>
+                </div>
 
                 <div class="match-card">...</div>
                 <div class="match-card">...</div>
@@ -175,13 +179,15 @@ body{
             </div>
         </div>
 
-        <div class="arrow" id="nextBtn">›</div>
+        <div class="arrow">›</div>
     </div>
 </div>
 
+<!-- HEADER -->
 <div class="header-section">
+
     <div class="header-wrapper">
-        <div class="header-content" id="headerContent">
+        <div class="header-content">
             <img src="img/logo.png" class="logo-img">
             <div class="title-block">
                 <span>TJ LOKOMOTIVA</span>
@@ -189,45 +195,10 @@ body{
             </div>
         </div>
     </div>
+
     <div class="full-divider"></div>
+
 </div>
-
-<script>
-const slider=document.getElementById("slider");
-const sliderWrapper=document.getElementById("sliderWrapper");
-const headerContent=document.getElementById("headerContent");
-const prevBtn=document.getElementById("prevBtn");
-const nextBtn=document.getElementById("nextBtn");
-
-const cardWidth=265;
-const total=6;
-const visible=4;
-let index=total-visible;
-
-function update(){
-    slider.style.transform=`translateX(-${index*cardWidth}px)`;
-    prevBtn.classList.toggle("disabled",index===0);
-    nextBtn.classList.toggle("disabled",index===total-visible);
-    alignLogo();
-}
-
-function alignLogo(){
-    const firstVisible=slider.children[index];
-    const cardRect=firstVisible.getBoundingClientRect();
-    const headerWrapperRect=document.querySelector(".header-wrapper").getBoundingClientRect();
-
-    const offset=cardRect.left-headerWrapperRect.left;
-
-    headerContent.style.left=offset+"px";
-}
-
-prevBtn.onclick=()=>{ if(index>0){index--;update();} };
-nextBtn.onclick=()=>{ if(index<total-visible){index++;update();} };
-
-window.addEventListener("resize",alignLogo);
-
-update();
-</script>
 
 </body>
 </html>
