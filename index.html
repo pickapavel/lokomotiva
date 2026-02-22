@@ -25,7 +25,17 @@ body {
     font-family: 'Segoe UI', sans-serif;
     background: linear-gradient(to bottom, var(--bg-dark), var(--bg-darker));
     color: white;
-    overflow-x: hidden;
+}
+
+/* ===================== */
+/* HLAVNÍ CONTAINER */
+/* ===================== */
+
+.page-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 40px 20px 0 20px;
+    position: relative;
 }
 
 /* ===================== */
@@ -34,8 +44,6 @@ body {
 
 .slider-wrapper {
     position: relative;
-    width: 100%;
-    padding: 40px 80px 20px 80px;
 }
 
 .slider-container {
@@ -44,17 +52,17 @@ body {
 
 .slider {
     display: flex;
-    transition: transform 0.5s ease;
     gap: 20px;
+    transition: transform 0.5s ease;
 }
 
 .match-box {
-    min-width: calc((100% - 60px) / 4);
+    flex: 0 0 calc((100% - 60px) / 4);
     background: var(--gray-dark);
     border: 1px solid rgba(244,196,0,0.3);
     padding: 20px;
     border-radius: 8px;
-    transition: all 0.3s ease;
+    transition: 0.3s;
 }
 
 .match-box:hover {
@@ -95,7 +103,7 @@ body {
     color: var(--gold);
 }
 
-/* Arrows */
+/* Šipky */
 
 .arrow {
     position: absolute;
@@ -114,35 +122,29 @@ body {
 }
 
 .arrow-left {
-    left: 30px;
+    left: -40px;
 }
 
 .arrow-right {
-    right: 30px;
+    right: -40px;
 }
 
 /* ===================== */
 /* HEADER POD PRVNÍM BOXEM */
 /* ===================== */
 
-.club-header-wrapper {
-    position: relative;
-    padding-left: 80px; /* stejné jako slider */
-    padding-top: 40px;
-    padding-bottom: 80px;
-}
-
 .club-header {
+    margin-top: 60px;
     display: flex;
     align-items: center;
     gap: 30px;
     width: fit-content;
-    position: relative;
-    z-index: 2;
 }
 
 .club-logo {
     width: 260px;
+    position: relative;
+    z-index: 2;
 }
 
 .club-text {
@@ -177,16 +179,16 @@ body {
     opacity: 0.6;
 }
 
-/* Zlatá čára přes celý viewport */
+/* Zlatá čára přes celou obrazovku */
 
 .gold-line {
     position: absolute;
     left: 0;
-    right: 0;
-    top: 140px; /* prochází spodní třetinou loga */
+    width: 100vw;
     height: 2px;
     background: var(--gold);
     box-shadow: 0 0 8px var(--gold);
+    top: 320px; /* můžeš doladit */
     z-index: 1;
 }
 
@@ -196,13 +198,13 @@ body {
 
 @media (max-width: 1100px) {
     .match-box {
-        min-width: calc((100% - 40px) / 2);
+        flex: 0 0 calc((100% - 20px) / 2);
     }
 }
 
 @media (max-width: 700px) {
     .match-box {
-        min-width: 100%;
+        flex: 0 0 100%;
     }
 
     .club-header {
@@ -217,74 +219,77 @@ body {
     .club-logo {
         width: 200px;
     }
+
+    .arrow-left {
+        left: -25px;
+    }
+
+    .arrow-right {
+        right: -25px;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<!-- ===================== -->
-<!-- SLIDER -->
-<!-- ===================== -->
+<div class="page-container">
 
-<div class="slider-wrapper">
-    <div class="arrow arrow-left">&#10094;</div>
-    <div class="arrow arrow-right">&#10095;</div>
+    <!-- SLIDER -->
+    <div class="slider-wrapper">
+        <div class="arrow arrow-left">&#10094;</div>
+        <div class="arrow arrow-right">&#10095;</div>
 
-    <div class="slider-container">
-        <div class="slider" id="slider">
+        <div class="slider-container">
+            <div class="slider" id="slider">
 
-            <div class="match-box">
-                <div class="match-date">1. 9. 2025</div>
-                <div class="match-teams">Pacovští Blbouni vs Sparta</div>
-                <div class="match-score">2 : 1</div>
-                <div class="match-btn">Statistiky</div>
+                <div class="match-box">
+                    <div class="match-date">1. 9. 2025</div>
+                    <div class="match-teams">Pacovští Blbouni vs Sparta</div>
+                    <div class="match-score">2 : 1</div>
+                    <div class="match-btn">Statistiky</div>
+                </div>
+
+                <div class="match-box">
+                    <div class="match-date">8. 9. 2025</div>
+                    <div class="match-teams">Slavia vs Pacovští Blbouni</div>
+                    <div class="match-score">1 : 3</div>
+                    <div class="match-btn">Statistiky</div>
+                </div>
+
+                <div class="match-box">
+                    <div class="match-date">15. 9. 2025</div>
+                    <div class="match-teams">Pacov vs Brno</div>
+                    <div class="match-score">0 : 0</div>
+                    <div class="match-btn">Statistiky</div>
+                </div>
+
+                <div class="match-box">
+                    <div class="match-date">22. 9. 2025</div>
+                    <div class="match-teams">Ostrava vs Pacov</div>
+                    <div class="match-score">1 : 2</div>
+                    <div class="match-btn">Statistiky</div>
+                </div>
+
+                <div class="match-box">
+                    <div class="match-date">29. 9. 2025</div>
+                    <div class="match-teams">Pacov vs Plzeň</div>
+                    <div class="match-score">3 : 0</div>
+                    <div class="match-btn">Statistiky</div>
+                </div>
+
+                <div class="match-box">
+                    <div class="match-date">6. 10. 2025</div>
+                    <div class="match-teams">Liberec vs Pacov</div>
+                    <div class="match-score">2 : 2</div>
+                    <div class="match-btn">Statistiky</div>
+                </div>
+
             </div>
-
-            <div class="match-box">
-                <div class="match-date">8. 9. 2025</div>
-                <div class="match-teams">Slavia vs Pacovští Blbouni</div>
-                <div class="match-score">1 : 3</div>
-                <div class="match-btn">Statistiky</div>
-            </div>
-
-            <div class="match-box">
-                <div class="match-date">15. 9. 2025</div>
-                <div class="match-teams">Pacov vs Brno</div>
-                <div class="match-score">0 : 0</div>
-                <div class="match-btn">Statistiky</div>
-            </div>
-
-            <div class="match-box">
-                <div class="match-date">22. 9. 2025</div>
-                <div class="match-teams">Ostrava vs Pacov</div>
-                <div class="match-score">1 : 2</div>
-                <div class="match-btn">Statistiky</div>
-            </div>
-
-            <div class="match-box">
-                <div class="match-date">29. 9. 2025</div>
-                <div class="match-teams">Pacov vs Plzeň</div>
-                <div class="match-score">3 : 0</div>
-                <div class="match-btn">Statistiky</div>
-            </div>
-
-            <div class="match-box">
-                <div class="match-date">6. 10. 2025</div>
-                <div class="match-teams">Liberec vs Pacov</div>
-                <div class="match-score">2 : 2</div>
-                <div class="match-btn">Statistiky</div>
-            </div>
-
         </div>
     </div>
-</div>
 
-<!-- ===================== -->
-<!-- HEADER POD PRVNÍM BOXEM -->
-<!-- ===================== -->
-
-<div class="club-header-wrapper">
+    <!-- HEADER POD PRVNÍM BOXEM -->
     <div class="club-header">
         <img src="img/logo.png" alt="Logo" class="club-logo">
         <div class="club-text">
@@ -292,12 +297,10 @@ body {
             <div class="club-title">PACOVŠTÍ BLBOUNI</div>
         </div>
     </div>
-    <div class="gold-line"></div>
+
 </div>
 
-<!-- ===================== -->
-<!-- SCRIPT -->
-<!-- ===================== -->
+<div class="gold-line"></div>
 
 <script>
 const slider = document.getElementById("slider");
@@ -328,15 +331,6 @@ leftArrow.addEventListener("click", () => {
         index--;
         updateSlider();
     }
-});
-
-window.addEventListener("resize", () => {
-    if (window.innerWidth < 700) visible = 1;
-    else if (window.innerWidth < 1100) visible = 2;
-    else visible = 4;
-
-    index = total - visible;
-    updateSlider();
 });
 
 updateSlider();
