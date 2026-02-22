@@ -95,7 +95,7 @@ body {
     color: var(--gold);
 }
 
-/* Slider arrows */
+/* Arrows */
 
 .arrow {
     position: absolute;
@@ -122,21 +122,27 @@ body {
 }
 
 /* ===================== */
-/* HEADER */
+/* HEADER POD PRVNÍM BOXEM */
 /* ===================== */
 
-.club-header {
+.club-header-wrapper {
     position: relative;
+    padding-left: 80px; /* stejné jako slider */
+    padding-top: 40px;
+    padding-bottom: 80px;
+}
+
+.club-header {
     display: flex;
     align-items: center;
     gap: 30px;
-    padding: 20px 80px 80px 80px;
+    width: fit-content;
+    position: relative;
+    z-index: 2;
 }
 
 .club-logo {
     width: 260px;
-    position: relative;
-    z-index: 2;
 }
 
 .club-text {
@@ -171,13 +177,13 @@ body {
     opacity: 0.6;
 }
 
-/* Gold line across viewport */
+/* Zlatá čára přes celý viewport */
 
 .gold-line {
     position: absolute;
     left: 0;
     right: 0;
-    top: 65%;
+    top: 140px; /* prochází spodní třetinou loga */
     height: 2px;
     background: var(--gold);
     box-shadow: 0 0 8px var(--gold);
@@ -275,17 +281,17 @@ body {
 </div>
 
 <!-- ===================== -->
-<!-- HEADER -->
+<!-- HEADER POD PRVNÍM BOXEM -->
 <!-- ===================== -->
 
-<div class="club-header">
-    <img src="img/logo.png" alt="Logo" class="club-logo">
-
-    <div class="club-text">
-        <div class="club-subtitle">TJ LOKOMOTIVA</div>
-        <div class="club-title">PACOVŠTÍ BLBOUNI</div>
+<div class="club-header-wrapper">
+    <div class="club-header">
+        <img src="img/logo.png" alt="Logo" class="club-logo">
+        <div class="club-text">
+            <div class="club-subtitle">TJ LOKOMOTIVA</div>
+            <div class="club-title">PACOVŠTÍ BLBOUNI</div>
+        </div>
     </div>
-
     <div class="gold-line"></div>
 </div>
 
