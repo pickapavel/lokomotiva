@@ -35,6 +35,7 @@ body{
 .slider-wrapper{
     width:1070px;
     overflow:hidden;
+    position:relative;
 }
 
 .matches-slider{
@@ -140,7 +141,7 @@ body{
 
 .header-section{
     position:relative;
-    margin-top:30px;
+    margin-top:40px;
     padding-bottom:70px;
 }
 
@@ -155,16 +156,13 @@ body{
     align-items:center;
     gap:40px;
     position:relative;
-    transition:margin-left .4s ease;
+    transition:transform .4s ease;
 }
 
-/* LOGO */
 .logo-img{
     width:220px;
     filter: drop-shadow(0 0 20px rgba(255,215,0,0.6));
 }
-
-/* TEXT */
 
 .title-block span{
     display:block;
@@ -211,20 +209,15 @@ body{
     <div class="slider-container">
         <div class="arrow" id="prevBtn">‹</div>
 
-        <div class="slider-wrapper">
+        <div class="slider-wrapper" id="sliderWrapper">
             <div class="matches-slider" id="slider">
 
-                <div class="match-card"><div class="match-body"><div class="team"><div class="logo"></div><div class="team-name">Loko</div></div><div class="score">6 : 4</div><div class="team"><div class="logo"></div><div class="team-name">Tým C</div></div></div><a href="#" class="match-button">Statistiky</a></div>
-
-                <div class="match-card"><div class="match-body"><div class="team"><div class="logo"></div><div class="team-name">Loko</div></div><div class="score">3 : 5</div><div class="team"><div class="logo"></div><div class="team-name">Tým D</div></div></div><a href="#" class="match-button">Statistiky</a></div>
-
-                <div class="match-card"><div class="match-body"><div class="team"><div class="logo"></div><div class="team-name">Loko</div></div><div class="score">2 : 1</div><div class="team"><div class="logo"></div><div class="team-name">Tým E</div></div></div><a href="#" class="match-button">Statistiky</a></div>
-
-                <div class="match-card"><div class="match-body"><div class="team"><div class="logo"></div><div class="team-name">Loko</div></div><div class="score">5 : 2</div><div class="team"><div class="logo"></div><div class="team-name">Tým F</div></div></div><a href="#" class="match-button">Statistiky</a></div>
-
-                <div class="match-card"><div class="match-body"><div class="team"><div class="logo"></div><div class="team-name">Loko</div></div><div class="score">4 : 3</div><div class="team"><div class="logo"></div><div class="team-name">Tým A</div></div></div><a href="#" class="match-button">Statistiky</a></div>
-
-                <div class="match-card"><div class="match-body"><div class="team"><div class="logo"></div><div class="team-name">Loko</div></div><div class="score">2 : 6</div><div class="team"><div class="logo"></div><div class="team-name">Tým B</div></div></div><a href="#" class="match-button">Statistiky</a></div>
+                <div class="match-card">...</div>
+                <div class="match-card">...</div>
+                <div class="match-card">...</div>
+                <div class="match-card">...</div>
+                <div class="match-card">...</div>
+                <div class="match-card">...</div>
 
             </div>
         </div>
@@ -251,6 +244,7 @@ body{
 
 <script>
 const slider=document.getElementById("slider");
+const sliderWrapper=document.getElementById("sliderWrapper");
 const prevBtn=document.getElementById("prevBtn");
 const nextBtn=document.getElementById("nextBtn");
 const headerContent=document.getElementById("headerContent");
@@ -269,11 +263,13 @@ function update(){
 }
 
 function alignHeader(){
-    const firstVisibleCard=slider.children[index];
-    const wrapperRect=document.querySelector(".slider-wrapper").getBoundingClientRect();
-    const cardRect=firstVisibleCard.getBoundingClientRect();
+    const firstCard=slider.children[index];
+    const wrapperRect=sliderWrapper.getBoundingClientRect();
+    const cardRect=firstCard.getBoundingClientRect();
+
     const offset=cardRect.left-wrapperRect.left;
-    headerContent.style.marginLeft=offset+"px";
+
+    headerContent.style.transform=`translateX(${offset}px)`;
 }
 
 prevBtn.onclick=()=>{ if(index>0){index--;update();} };
