@@ -146,10 +146,9 @@ body{
     padding:10px 0 45px 0;
 }
 
-/* Zlatá čára přes celý viewport */
 .full-divider{
     position:absolute;
-    top:68%;
+    top:70%;
     left:0;
     width:100vw;
     height:2px;
@@ -174,34 +173,30 @@ body{
 
 .header-content{
     display:flex;
-    align-items:flex-start;
-    gap:35px;
+    align-items:center; /* zarovná text na střed loga */
+    gap:40px;
 }
 
+/* 🔥 VĚTŠÍ LOGO */
 .logo-img{
-    width:190px;
+    width:260px;  /* hlavní změna */
     position:relative;
     z-index:3;
-    filter: drop-shadow(0 0 12px rgba(255,215,0,0.5));
+    filter: drop-shadow(0 0 15px rgba(255,215,0,0.5));
 }
 
 /* TEXT */
 
-.title-block{
-    padding-top:12px;
-}
-
 .title-block span{
     display:block;
-    font-size:13px;
+    font-size:14px;
     letter-spacing:6px;
     color:#888;
-    margin-bottom:14px;
+    margin-bottom:15px;
 }
 
-/* MODERNÍ SPORT STYLE */
 .title-block h1{
-    font-size:54px;
+    font-size:60px;
     font-weight:900;
     letter-spacing:2px;
     line-height:1;
@@ -209,14 +204,14 @@ body{
     position:relative;
 }
 
-/* spodní jemná světelná hrana */
+/* jemná spodní hrana */
 .title-block h1::after{
     content:"";
     position:absolute;
     left:0;
-    bottom:-8px;
+    bottom:-10px;
     width:100%;
-    height:8px;
+    height:10px;
     background:linear-gradient(
         to bottom,
         rgba(255,215,0,0.4),
@@ -228,8 +223,6 @@ body{
 </head>
 <body>
 
-<!-- 🔝 BOXÍKY -->
-
 <div class="top-slider">
     <div class="slider-container">
         <div class="arrow" id="prevBtn">‹</div>
@@ -238,15 +231,10 @@ body{
             <div class="matches-slider" id="slider">
 
                 <div class="match-card"><div class="match-body"><div class="team"><div class="logo"></div><div class="team-name">Loko</div></div><div class="score">4 : 3</div><div class="team"><div class="logo"></div><div class="team-name">Tým A</div></div></div><a href="#" class="match-button">Statistiky</a></div>
-
                 <div class="match-card"><div class="match-body"><div class="team"><div class="logo"></div><div class="team-name">Loko</div></div><div class="score">2 : 6</div><div class="team"><div class="logo"></div><div class="team-name">Tým B</div></div></div><a href="#" class="match-button">Statistiky</a></div>
-
                 <div class="match-card"><div class="match-body"><div class="team"><div class="logo"></div><div class="team-name">Loko</div></div><div class="score">6 : 4</div><div class="team"><div class="logo"></div><div class="team-name">Tým C</div></div></div><a href="#" class="match-button">Statistiky</a></div>
-
                 <div class="match-card"><div class="match-body"><div class="team"><div class="logo"></div><div class="team-name">Loko</div></div><div class="score">3 : 5</div><div class="team"><div class="logo"></div><div class="team-name">Tým D</div></div></div><a href="#" class="match-button">Statistiky</a></div>
-
                 <div class="match-card"><div class="match-body"><div class="team"><div class="logo"></div><div class="team-name">Loko</div></div><div class="score">2 : 1</div><div class="team"><div class="logo"></div><div class="team-name">Tým E</div></div></div><a href="#" class="match-button">Statistiky</a></div>
-
                 <div class="match-card"><div class="match-body"><div class="team"><div class="logo"></div><div class="team-name">Loko</div></div><div class="score">5 : 2</div><div class="team"><div class="logo"></div><div class="team-name">Tým F</div></div></div><a href="#" class="match-button">Statistiky</a></div>
 
             </div>
@@ -255,8 +243,6 @@ body{
         <div class="arrow" id="nextBtn">›</div>
     </div>
 </div>
-
-<!-- 🏆 LOGO + NADPIS -->
 
 <div class="header-section">
 
